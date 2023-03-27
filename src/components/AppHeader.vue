@@ -20,12 +20,60 @@ export default {
     </div>
 
     <div class="offcanvas my_offcanvasfilters offcanvas-bottom rounded-top" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+        <div class="offcanvas-header pb-0">
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title me-2" id="offcanvasBottomLabel">Filtri</h5>
         </div>
-        <div class="offcanvas-body small">
-            ...
+        <hr>
+        <div class="offcanvas-body small px-3">
+            <section>
+                <h3>Fascia di prezzo</h3>
+                <p class="text-secondary">Il prezzo medio giornaliero è 210 €.</p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3 class="mb-3">Tipo di alloggio</h3>
+
+                <div class="row align-items-center mb-3">
+                    <div class="col-10">
+                        <label class="form-check-label" for="checkbox1">
+                            <h6>Tutta la casa</h6> <span class="text-secondary">Un alloggio tutto per te</span>
+                        </label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="checkbox1">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3">
+                    <div class="col-10">
+                        <label class="form-check-label" for="checkbox2">
+                            <h6>Stanza privata</h6> <span class="text-secondary">La tua stanza in un alloggio o hotel, più alcuni spazi comuni condivisi</span>
+                        </label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="checkbox2">
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <label class="form-check-label" for="checkbox3">
+                            <h6>Stanza condivisa</h6> <span class="text-secondary">Uno spazio per dormire e aree comuni che possono essere condivise con altre persone</span>
+                        </label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="checkbox3">
+                    </div>
+                </div>
+
+            </section>
+
+            <hr>
+
+            
         </div>
     </div>
 
@@ -117,6 +165,7 @@ export default {
 
     svg{
         font-size: 19pt;
+        color: grey;
     };
 
     .my_active{
@@ -131,6 +180,12 @@ export default {
 
 .my_offcanvasfilters{
     height: 98vh !important;
+
+    .my_checkbox{
+        width: 30px;
+        height: 30px;
+    }
+
 }
 
 </style>

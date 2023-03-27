@@ -7,7 +7,7 @@ export default {
 <template lang="">
 
     <div class="card my_card border-0">
-        <img src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" class="card-img-top rounded" alt="...">
+        <img src="https://a0.muscache.com/im/pictures/ba068000-9f61-459c-9ecb-6edc11169604.jpg?im_w=720" class="card-img-top rounded" alt="...">
         <a href="#" class="my_heart"> <fa icon="heart" /> </a>
         <div class="card-body px-0">
             <p class="card-title mb-0">
