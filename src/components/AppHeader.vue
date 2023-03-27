@@ -65,12 +65,12 @@ export default {
 
             <button class="btn my_navico mb-0 text-center">
                 <fa :icon="['fas', 'heart']" /><br>
-                <p>Esplora</p>
+                <p>Preferiti</p>
             </button>
 
             <button class="btn my_navico mb-0 text-center">
                 <fa :icon="['fas', 'user']" /><br>
-                <p>Esplora</p>
+                <p>Accedi</p>
             </button>
 
         </div>  
