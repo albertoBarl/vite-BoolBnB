@@ -69,9 +69,9 @@ export default {
                     </div>
                 </div>
 
-            </section> -->
+            </section>
 
-            <hr>
+            <hr> -->
 
             <section>
                 <h3 class="mb-3">Stanze e letti</h3>
@@ -135,6 +135,129 @@ export default {
                 </div>
             </section>
 
+            <hr>
+
+            <section>
+                <h3>Servizi</h3>
+                
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio1">Wi-Fi</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio1">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio2">Piscina</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio2">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio3">Posto macchina</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio3">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio4">Portineria</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio4">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio5">Sauna</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio5">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio6">Vista mare</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio6">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio7">Vista lago</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio7">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio8">Aria condizionata</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio8">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio9">Riscaldamento</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio9">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio10">TV</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio10">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio11">Lavatrice</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio11">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio12">Palestra</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio12">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mb-3 fs-6">
+                    <div class="col-10">
+                        <label class="form-check-label" for="servizio13">Barbecue</label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio13">
+                    </div>
+                </div>
+
+            </section>
             
         </div>
     </div>
