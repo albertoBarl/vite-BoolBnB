@@ -26,7 +26,7 @@ export default {
         </div>
         <hr>
         <div class="offcanvas-body small px-3">
-            <section>
+            <!-- <section>
                 <h3>Fascia di prezzo</h3>
                 <p class="text-secondary">Il prezzo medio giornaliero è 210 €.</p>
             </section>
@@ -69,9 +69,71 @@ export default {
                     </div>
                 </div>
 
-            </section>
+            </section> -->
 
             <hr>
+
+            <section>
+                <h3 class="mb-3">Stanze e letti</h3>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12"> <h5>Camere da letto</h5> </div>
+                </div>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12 d-flex my_horizontalscroll">
+                        <button type="button" class="btn btn-outline-dark rounded-pill active" data-bs-toggle="button" aria-pressed="true">Qualsiasi</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">1</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">2</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">3</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">4</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">5</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">6</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">7</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">8+</button>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12"> <h5>Letti</h5> </div>
+                </div>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12 d-flex my_horizontalscroll">
+                        <button type="button" class="btn btn-outline-dark rounded-pill active" data-bs-toggle="button" aria-pressed="true">Qualsiasi</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">1</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">2</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">3</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">4</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">5</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">6</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">7</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">8+</button>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12"> <h5>Bagni</h5> </div>
+                </div>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12 d-flex my_horizontalscroll">
+                        <button type="button" class="btn btn-outline-dark rounded-pill active" data-bs-toggle="button" aria-pressed="true">Qualsiasi</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">1</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">2</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">3</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">4</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">5</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">6</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">7</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">8+</button>
+                    </div>
+                </div>
+            </section>
 
             
         </div>
@@ -184,6 +246,17 @@ export default {
     .my_checkbox{
         width: 30px;
         height: 30px;
+    }
+
+    .my_horizontalscroll{
+        overflow: auto;
+        white-space: nowrap;
+
+        button{
+            border: 1px solid grey;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
     }
 
 }
