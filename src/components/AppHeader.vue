@@ -111,10 +111,10 @@ export default {
                 <p>Esplora</p>
             </button>
 
-            <button class="btn my_navico mb-0 text-center">
+            <!-- <button class="btn my_navico mb-0 text-center">
                 <fa :icon="['fas', 'heart']" /><br>
                 <p>Preferiti</p>
-            </button>
+            </button> -->
 
             <button class="btn my_navico mb-0 text-center">
                 <fa :icon="['fas', 'user']" /><br>

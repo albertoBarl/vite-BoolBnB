@@ -63,7 +63,7 @@ export default {
 
             <div class="row">
                 <ul>
-                    <li> <a href="#"><fa icon="globe" class="me-1" />Italiano (IT)</a> <a href="#" class="ms-3">€ EUR</a></li>
+                    <!-- <li> <a href="#"><fa icon="globe" class="me-1" />Italiano (IT)</a> <a href="#" class="ms-3">€ EUR</a></li> -->
                     <li>© 2023 Airbnb, Inc.</li>
                     <li><a href="#">Privacy</a> &#x2022; <a href="#">Termini</a> &#x2022; <a href="#">Mappa del sito</a> &#x2022; <a href="#">Dettagli dell'azienda</a> &#x2022; <a href="#">Destinazioni</a></li>
                 </ul>
