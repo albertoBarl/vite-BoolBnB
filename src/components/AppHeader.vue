@@ -262,7 +262,7 @@ export default {
         </div>
     </div>
 
-    <header class="w-100 fixed-top bg-light shadow-sm">
+    <header class="w-100 fixed-top bg-light shadow-sm my_headersm">
 
         <button class="btn my_searchbtn shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" data-bs-backdrop="false">
             <div class="row align-items-center">
@@ -281,11 +281,11 @@ export default {
 
     </header>
 
-    <nav class="w-100 fixed-bottom bg-light border-top">
+    <nav class="w-100 fixed-bottom bg-light border-top my_navsm">
 
         <div class="container w-100 my_mapbtn text-center">
             <a href="#">
-                <button class="btn btn-dark rounded-pill"> Mappa <fa :icon="['fas', 'map']" /></button>
+                <button class="btn btn-dark rounded-pill my_mapsm"> Mappa <fa :icon="['fas', 'map']" /></button>
             </a>
         </div>
 
@@ -315,6 +315,14 @@ export default {
 <style lang="scss" scoped>
 
 @use '../styles/partials/variables.scss' as *;
+
+.my_headermd{
+    display: none;
+}
+
+.my_navmd{
+    display: none;
+}
 
 .my_searchbtn{
     border: 1px solid lightgrey;
@@ -380,6 +388,26 @@ export default {
             padding: 10px 20px;
             margin-right: 10px;
         }
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .my_mapsm{
+        display: none;
+    }
+
+    .my_mapmd{
+        display: inline-block;
+    }
+
+    .my_headersm{
+        display: none;
+    }
+
+    .my_navsm{
+        display: none;
     }
 
 }
