@@ -33,5 +33,13 @@ export default {
 .my_cardsapp{
     margin: 120px auto 50px auto;
 }
+
+@media screen and (min-width: 768px) {
+
+    .my_cardsapp{
+        margin: 120px auto 200px auto;
+    }
+
+}
     
 </style>

@@ -168,22 +168,24 @@ export default {
             </a>
         </div>
 
-        <div class="container ms-0">
 
-            <div class="row align-items-center">
+            <div class="row align-items-center my_footercontainer">
 
-                <div class="col-9">
+                <div class="col-9 my_footercolmd">
                     <ul>
                         <li>© 2023 Airbnb, Inc.</li>
                         <li><a href="#">Privacy</a> &#x2022; <a href="#">Termini</a> &#x2022; <a href="#">Mappa del sito</a> &#x2022; <a href="#">Dettagli dell'azienda</a> &#x2022; <a href="#">Destinazioni</a></li>
                     </ul>
                 </div>
 
-                <div class="col-3"> <a class="btn my_footerbtn" role="button" data-bs-toggle="offcanvas" href="#offcanvasFooter" aria-controls="offcanvasFooter">Supporto e risorse <fa icon="angle-up" /></a> </div>
+                <div class="col-9 my_footercollg py-3">
+                        © 2023 Airbnb, Inc. &#x2022; <a href="#">Privacy</a> &#x2022; <a href="#">Termini</a> &#x2022; <a href="#">Mappa del sito</a> &#x2022; <a href="#">Dettagli dell'azienda</a> &#x2022; <a href="#">Destinazioni</a>
+                </div>
+
+                <div class="col-3 text-end"> <a class="btn my_footerbtn" role="button" data-bs-toggle="offcanvas" href="#offcanvasFooter" aria-controls="offcanvasFooter">Supporto e risorse <fa icon="angle-up" /></a> </div>
 
             </div>
         
-        </div>
 
     </footer>
 
@@ -192,6 +194,7 @@ export default {
 
 <style lang="scss" scoped>
     
+    @use '../styles/partials/variables.scss' as *;
 
 .my_footersm{
 
@@ -204,7 +207,7 @@ export default {
 
         a{
             text-decoration: none;
-            color: #000;
+            color: $bnb-black;
         }
     }
 
@@ -220,6 +223,10 @@ export default {
         display: none;
     }
 
+    .my_footercontainer{
+        padding: 0 100px;
+    }
+
     .my_footermd{
         display: inline-block;
         font-size: 10pt;
@@ -231,7 +238,7 @@ export default {
 
             a{
                 text-decoration: none;
-                color: #000;
+                color: $bnb-black;
             }
         }
 
@@ -250,10 +257,29 @@ export default {
 
         a{
             text-decoration: none;
-            color: #000;
+            color: $bnb-black;
         }
     }
 
+    .my_footercollg{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .my_footercollg{
+        display: inline-block;
+
+        a{
+            text-decoration: none;
+            color: $bnb-black;
+        }
+    }
+
+    .my_footercolmd{
+        display: none;
+    }
 }
 
 </style>
