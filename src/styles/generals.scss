@@ -1,0 +1,18 @@
+@use '../styles/partials/variables.scss' as *;
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import url('https://fonts.cdnfonts.com/css/circular-std');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+};
+
+body{
+    font-family: 'Circular Std', sans-serif;    
+}
+
+.offcanvas.show ~ .modal-backdrop {
+    opacity: 0;
+    pointer-events: none;
+}
