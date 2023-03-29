@@ -179,7 +179,7 @@ export default {
                     </ul>
                 </div>
 
-                <div class="col-3"> <a class="btn my_footerbtn" role="button" data-bs-toggle="offcanvas" href="#offcanvasFooter" aria-controls="offcanvasFooter">Supporto e risorse <fa icon="angle-up" /></a> </div>
+                <div class="col-3 text-end"> <a class="btn my_footerbtn" role="button" data-bs-toggle="offcanvas" href="#offcanvasFooter" aria-controls="offcanvasFooter">Supporto e risorse <fa icon="angle-up" /></a> </div>
 
             </div>
         
