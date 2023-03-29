@@ -268,8 +268,8 @@ export default {
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
+                <h1 class="modal-title fs-5 ms-5" id="exampleModal1Label">Modal title</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <h1 class="modal-title fs-5 ms-5" id="exampleModal1Label">Filtri</h1>
             </div>
             <div class="modal-body">
                 ...
@@ -286,8 +286,8 @@ export default {
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 ms-5" id="exampleModal2Label">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 class="modal-title fs-5" id="exampleModal2Label">Filtri</h1>
+                <button type="button" class="btn-close justify-self-start" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <section>
@@ -577,6 +577,53 @@ export default {
 
     </header>
 
+
+    <header class="w-100 fixed-top bg-light shadow-sm my_headerlg px-5">
+
+        <div class="row align-items-center px-5">
+
+            <div class="col-1">
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/1200px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="airbnb-logo-lg" class="img-fluid"></a>
+            </div>
+
+            <div class="col-2"></div>
+
+            <div class="col-4 justify-content-center">
+
+                <button class="btn my_searchbtn shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-backdrop="false">
+                    <div class="row align-items-center">
+                        <div class="col-9 text-start ps-3"> Ovunque... </div>
+                        <div class="col-3 text-end mt-1"> <fa icon="magnifying-glass" class="my_searchbtnmd rounded-circle" /> </div>
+                    </div>
+                </button>
+
+            </div>
+
+            <div class="col-1">
+                <button class="btn my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
+                    <fa icon="sliders" class="me-2" /> Filtri
+                </button>
+            </div>
+
+            <div class="col-4 d-flex justify-content-end">
+                <a href="#"><button class="btn" type="button"> Affitta con Airbnb </button></a>
+
+                    <div class="btn-group ms-3">
+                        <button type="button" class="btn fs-5 my_userbutton shadow-sm rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <fa :icon="['far', 'circle-user']" />
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Registrati</a></li>
+                            <li><a class="dropdown-item" href="#">Accedi</a></li>
+                            <li><a class="dropdown-item" href="#">Affitta con Airbnb</a></li>
+                        </ul>
+                    </div>
+            </div>                        
+
+        </div>
+
+    </header>
+
 </template>
 
 <style lang="scss" scoped>
@@ -587,12 +634,16 @@ export default {
     display: none;
 }
 
+.my_headerlg{
+    display: none;
+}
+
 .my_navmd{
     display: none;
 }
 
 .my_searchbtn{
-    border: 1px solid lightgrey;
+    border: 1px solid $bnb-grey;
     border-radius: 50px;
     margin: 20px 20px;
     width: calc(100% - 40px);
@@ -606,13 +657,13 @@ export default {
 
         p{
             font-size: 8pt;
-            color: grey;
+            color: $bnb-grey;
         }
     }
 
     .my_filterbutton{
         padding: 4px 8px 5px 8px;
-        border: 1px solid lightgrey;
+        border: 1px solid $bnb-grey;
         border-radius: 100%;
     }
 }
@@ -625,7 +676,7 @@ export default {
 
     svg{
         font-size: 19pt;
-        color: grey;
+        color: $bnb-grey;
     };
 
     .my_active{
@@ -651,7 +702,7 @@ export default {
         white-space: nowrap;
 
         button{
-            border: 1px solid grey;
+            border: 1px solid $bnb-grey;
             padding: 10px 20px;
             margin-right: 10px;
         }
@@ -677,19 +728,20 @@ export default {
     .my_headermd{
     display: flex;
     width: 100vw;
+    padding: 0px 130px;
 
         .my_filterbutton{
             padding: 4px 8px 5px 8px;
-            border: 1px solid lightgrey;
+            border: 1px solid $bnb-grey;
         }
 
         .my_userbutton{
             padding: 5px 10px 5px 10px;
-            border: 1px solid lightgrey;
+            border: 1px solid $bnb-grey;
         }
 
         .my_searchbtnmd{
-            color: #fff;
+            color: $bnb-white;
             background-color: $bnb-red;
             padding: 7px;
         }
@@ -712,13 +764,40 @@ export default {
             white-space: nowrap;
 
             button{
-                border: 1px solid grey;
+                border: 1px solid $bnb-grey;
                 padding: 10px 20px;
                 margin-right: 10px;
             }
         }
 
     }
+
+}
+
+
+@media screen and (min-width: 992px) {
+
+    .my_headerlg{
+        display: flex;
+        padding: 0px 150px;
+    }
+
+    .my_headermd{
+        display: none;
+    }
+
+    .my_filterbutton{
+        padding: 4px 8px 5px 8px;
+        border: 1px solid $bnb-grey;
+        border-radius: 100%;
+    }
+
+    .my_searchbtnmd{
+            color: $bnb-white;
+            background-color: $bnb-red;
+            padding: 7px;
+        }
+
 
 }
 
