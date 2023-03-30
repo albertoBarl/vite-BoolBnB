@@ -11,7 +11,7 @@ export default {
 
 <template lang="">
   <AppMap />
-
+  <!-- test -->
   <div
     class="offcanvas my_offcanvassearch offcanvas-top h-100"
     tabindex="-1"
