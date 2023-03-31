@@ -1,16 +1,16 @@
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import AppMap from "./AppMap.vue";
+// import AppMap from "./AppMap.vue";
 
 export default {
   components: {
-    AppMap,
+    // AppMap,
   },
 };
 </script>
 
 <template lang="">
-  <AppMap />
+  <!-- <AppMap /> -->
   <!-- test -->
   <div
     class="offcanvas my_offcanvassearch offcanvas-top h-100"
@@ -47,7 +47,7 @@ export default {
     </div>
     <hr />
     <div class="offcanvas-body small px-3">
-      <!-- <section>
+      <section>
                 <h3>Fascia di prezzo</h3>
                 <p class="text-secondary">Il prezzo medio giornaliero è 210 €.</p>
             </section>
@@ -92,7 +92,7 @@ export default {
 
             </section>
 
-            <hr> -->
+            <hr>
 
       <section>
         <h3 class="mb-3">Stanze e letti</h3>
