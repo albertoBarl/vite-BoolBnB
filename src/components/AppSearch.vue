@@ -7,6 +7,7 @@ export default {
       searchText: "",
       results: [],
       apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
+      poi: [],
     };
   },
   methods: {
@@ -18,6 +19,10 @@ export default {
         .then((response) => {
           this.results = response.data.results;
         });
+    },
+    autoComplete(index) {
+      this.poi = this.results[index];
+      console.log(this.poi);
     },
   },
 };
@@ -31,7 +36,7 @@ export default {
       @input="getResults"
     />
     <ul v-if="results.length">
-      <li v-for="(result, index) in results" :key="index">
+      <li @click="autoComplete" v-for="(result, index) in results" :key="index">
         {{ result.address.freeformAddress }}
       </li>
     </ul>
