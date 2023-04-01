@@ -36,7 +36,11 @@ export default {
       @input="getResults"
     />
     <ul v-if="results.length">
-      <li @click="autoComplete" v-for="(result, index) in results" :key="index">
+      <li
+        @click="autoComplete(index)"
+        v-for="(result, index) in results"
+        :key="index"
+      >
         {{ result.address.freeformAddress }}
       </li>
     </ul>
