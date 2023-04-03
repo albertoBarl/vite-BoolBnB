@@ -178,7 +178,7 @@ export default {
 
                 <div class="row align-items-center mb-3 fs-6">
                     <div class="col-10">
-                        <label class="form-check-label" for="servizio5">Sauna</label>
+                        <label class="form-check-label" for="servizio5">Saunaaa</label>
                     </div>
                     <div class="col-2">
                         <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio5">
@@ -482,9 +482,9 @@ export default {
 
     <!-- INIZIO HEADER FINE MODALI OFFCANVAS-->
 
-    <header class="w-100 fixed-top bg-light shadow-sm my_headersm">
+    <header class="w-100 fixed-top bg-light shadow-sm my_headersm p-3">
 
-        <button class="btn my_searchbtn shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" data-bs-backdrop="false">
+        <!-- <button class="btn my_searchbtn shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" data-bs-backdrop="false">
             <div class="row align-items-center">
                 <div class="col-2"> <fa icon="magnifying-glass"/> </div>
                 <div class="col-8"> 
@@ -497,7 +497,24 @@ export default {
                     </button>
                 </div>
             </div>
-        </button>
+        </button> -->
+
+        <div class="row">
+
+            <div class="col-1">
+                <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-bs-backdrop="false">
+                    <fa icon="sliders"/>
+                </button>
+            </div>
+
+            <div class="col-11">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
+                    <button class="btn my_searchbtnsm rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
+                </form>
+            </div>
+
+        </div>
 
     </header>
 
@@ -531,7 +548,7 @@ export default {
     </nav>
 
 
-    <header class="w-100 fixed-top bg-light shadow-sm my_headermd px-5">
+    <header class="w-100 fixed-top bg-light shadow-sm my_headermd px-5 py-3">
 
         <div class="row align-items-center">
 
@@ -541,17 +558,26 @@ export default {
 
             <div class="col-5">
 
-                <button class="btn my_searchbtn shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-backdrop="false">
+                <!-- <button class="btn my_searchbtn shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-backdrop="false">
                     <div class="row align-items-center">
                         <div class="col-9 text-start ps-3"> Ovunque... </div>
                         <div class="col-3 text-end mt-1"> <fa icon="magnifying-glass" class="my_searchbtnmd rounded-circle" /> </div>
                     </div>
-                </button>
+                </button> -->
+
+                <div class="row align-items-center">
+
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
+                        <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" class="mx-1" /></button>
+                    </form>
+
+                </div>
 
             </div>
 
             <div class="col-2">
-                <button class="btn my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
+                <button class="btn my_filterbutton rounded btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
                     <fa icon="sliders" class="me-2" /> Filtri
                 </button>
             </div>
@@ -578,7 +604,7 @@ export default {
     </header>
 
 
-    <header class="w-100 fixed-top bg-light shadow-sm my_headerlg px-5">
+    <header class="w-100 fixed-top bg-light shadow-sm my_headerlg px-5 py-3">
 
         <div class="row align-items-center px-5">
 
@@ -590,17 +616,26 @@ export default {
 
             <div class="col-4 justify-content-center">
 
-                <button class="btn my_searchbtn shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-backdrop="false">
-                    <div class="row align-items-center">
+                <!--<button class="btn my_searchbtn shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-backdrop="false">
+                     <div class="row align-items-center">
                         <div class="col-9 text-start ps-3"> Ovunque... </div>
                         <div class="col-3 text-end mt-1"> <fa icon="magnifying-glass" class="my_searchbtnmd rounded-circle" /> </div>
                     </div>
-                </button>
+                </button>-->
+
+                <div class="row align-items-center">
+
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
+                        <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
+                    </form>
+
+                </div>
 
             </div>
 
             <div class="col-1">
-                <button class="btn my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
+                <button class="btn btn-outline-dark my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
                     <fa icon="sliders" class="me-2" /> Filtri
                 </button>
             </div>
@@ -668,6 +703,19 @@ export default {
     }
 }
 
+.my_searchbtnsm{
+            color: $bnb-white;
+            background-color: $bnb-red;
+            border: 1px solid $bnb-red;
+            padding: 7px 11px;
+        }
+
+    .my_searchbtnsm:hover{
+        color: $bnb-red;
+        background-color: $bnb-white;
+        border: 1px solid $bnb-red;
+    }
+    
 .my_mapbtn{
     margin: -50px auto 10px auto;
 }
@@ -795,8 +843,15 @@ export default {
     .my_searchbtnmd{
             color: $bnb-white;
             background-color: $bnb-red;
-            padding: 7px;
+            border: 1px solid $bnb-red;
+            padding: 7px 11px;
         }
+
+    .my_searchbtnmd:hover{
+        color: $bnb-red;
+        background-color: $bnb-white;
+        border: 1px solid $bnb-red;
+    }
 
 
 }
