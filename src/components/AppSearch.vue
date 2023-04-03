@@ -25,6 +25,13 @@ export default {
       store.poi = this.results[index];
       // console.log(store.poi);
     },
+    saveData() {
+    localStorage.setItem("storeData", JSON.stringify(this.store));
+  },
+  handleClick(index){
+    this.autoComplete(index);
+    this.saveData();
+  }
   },
 };
 </script>
@@ -38,9 +45,9 @@ export default {
     />
     <ul v-if="results.length">
       <li
-        @click="autoComplete(index)"
+        @click="handleClick(index)"
         v-for="(result, index) in results"
-        :key="index"
+        :key="index" @submit="saveData"
       >
         <router-link
           :to="{

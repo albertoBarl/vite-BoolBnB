@@ -11,26 +11,34 @@ export default {
       //   loading: true,
       baseUrl: "http://127.0.0.1:8000",
       apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
-    };
+    }
   },
-  //   mounted() {
-  //     axios
-  //       .get(
-  //         `https://api.tomtom.com/search/2/geocode/${this.$route.params.place}.json?key=${this.apiKey}`
-  //       )
-  //       .then((response) => {
-  //   this.integer = response.data.results;
-  //         console.log(store.poi);
-  //         for (let item of this.integer) {
-  //           console.log(item.address.freeformAddress);
-  //           if (item.address.freeformAddress === this.$route.params.place) {
-  //             this.position = this.integer;
-  //           }
-  //         }
-  //         // console.log(this.integer);
-  //         // console.log(this.position);
-  //       });
-  //   },
+  methods: {
+  saveData() {
+    localStorage.setItem("storeData", JSON.stringify(this.store));
+  },
+  loadData() {
+    const storeData = localStorage.getItem("storeData");
+    if (storeData) {
+      this.store = JSON.parse(storeData);
+    }
+  },
+  clearData() {
+    localStorage.removeItem("storeData");
+  }
+},
+  beforeRouteLeave(to, from, next) {
+    this.clearData();
+    next();
+},
+  beforeDestroy() {
+    this.clearData();
+    window.removeEventListener("popstate", this.clearData);
+},
+  mounted() {
+    this.loadData();
+    window.addEventListener("popstate", this.clearData);
+}
 };
 </script>
 
