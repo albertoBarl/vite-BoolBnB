@@ -1,10 +1,13 @@
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import AppSearch from "./AppSearch.vue";
 
 export default {
-
-}
+  components: {
+    AppSearch,
+  },
+};
 </script>
 
 <template lang="">
@@ -662,45 +665,44 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../styles/partials/variables.scss" as *;
 
-@use '../styles/partials/variables.scss' as *;
-
-.my_headermd{
-    display: none;
+.my_headermd {
+  display: none;
 }
 
-.my_headerlg{
-    display: none;
+.my_headerlg {
+  display: none;
 }
 
-.my_navmd{
-    display: none;
+.my_navmd {
+  display: none;
 }
 
-.my_searchbtn{
+.my_searchbtn {
+  border: 1px solid $bnb-grey;
+  border-radius: 50px;
+  margin: 20px 20px;
+  width: calc(100% - 40px);
+
+  .col-8 {
+    text-align: left;
+
+    .my_searchtitle {
+      font-size: 10pt;
+    }
+
+    p {
+      font-size: 8pt;
+      color: $bnb-grey;
+    }
+  }
+
+  .my_filterbutton {
+    padding: 4px 8px 5px 8px;
     border: 1px solid $bnb-grey;
-    border-radius: 50px;
-    margin: 20px 20px;
-    width: calc(100% - 40px);
-
-    .col-8{
-        text-align: left;
-
-        .my_searchtitle{
-            font-size: 10pt;
-        }
-
-        p{
-            font-size: 8pt;
-            color: $bnb-grey;
-        }
-    }
-
-    .my_filterbutton{
-        padding: 4px 8px 5px 8px;
-        border: 1px solid $bnb-grey;
-        border-radius: 100%;
-    }
+    border-radius: 100%;
+  }
 }
 
 .my_searchbtnsm{
@@ -720,125 +722,114 @@ export default {
     margin: -50px auto 10px auto;
 }
 
-.my_navico{
+.my_navico {
+  svg {
+    font-size: 19pt;
+    color: $bnb-grey;
+  }
 
-    svg{
-        font-size: 19pt;
-        color: $bnb-grey;
-    };
+  .my_active {
+    color: $bnb-red;
+  }
 
-    .my_active{
-        color: $bnb-red;
-    };
+  p {
+    font-size: 10pt;
+  }
+}
 
-    p{
-        font-size: 10pt;
-    };
-    
-};
+.my_offcanvasfilters {
+  height: 98vh !important;
 
-.my_offcanvasfilters{
-    height: 98vh !important;
+  .my_checkbox {
+    width: 30px;
+    height: 30px;
+  }
 
-    .my_checkbox{
-        width: 30px;
-        height: 30px;
+  .my_horizontalscroll {
+    overflow: auto;
+    white-space: nowrap;
+
+    button {
+      border: 1px solid $bnb-grey;
+      padding: 10px 20px;
+      margin-right: 10px;
     }
-
-    .my_horizontalscroll{
-        overflow: auto;
-        white-space: nowrap;
-
-        button{
-            border: 1px solid $bnb-grey;
-            padding: 10px 20px;
-            margin-right: 10px;
-        }
-    }
-
+  }
 }
 
 @media screen and (min-width: 768px) {
-    
+  .my_mapsm {
+    display: none;
+  }
 
-    .my_mapsm{
-        display: none;
-    }
+  .my_mapmd {
+    display: inline-block;
+  }
 
-    .my_mapmd{
-        display: inline-block;
-    }
+  .my_headersm {
+    display: none;
+  }
 
-    .my_headersm{
-        display: none;
-    }
-
-    .my_headermd{
+  .my_headermd {
     display: flex;
     width: 100vw;
     padding: 0px 130px;
 
-        .my_filterbutton{
-            padding: 4px 8px 5px 8px;
-            border: 1px solid $bnb-grey;
-        }
-
-        .my_userbutton{
-            padding: 5px 10px 5px 10px;
-            border: 1px solid $bnb-grey;
-        }
-
-        .my_searchbtnmd{
-            color: $bnb-white;
-            background-color: $bnb-red;
-            padding: 7px;
-        }
-
+    .my_filterbutton {
+      padding: 4px 8px 5px 8px;
+      border: 1px solid $bnb-grey;
     }
 
-    .my_navsm{
-        display: none;
+    .my_userbutton {
+      padding: 5px 10px 5px 10px;
+      border: 1px solid $bnb-grey;
     }
 
-    .my_modalfilters{
+    .my_searchbtnmd {
+      color: $bnb-white;
+      background-color: $bnb-red;
+      padding: 7px;
+    }
+  }
 
-        .my_checkbox{
-            width: 30px;
-            height: 30px;
-        }
+  .my_navsm {
+    display: none;
+  }
 
-        .my_horizontalscroll{
-            overflow: auto;
-            white-space: nowrap;
-
-            button{
-                border: 1px solid $bnb-grey;
-                padding: 10px 20px;
-                margin-right: 10px;
-            }
-        }
-
+  .my_modalfilters {
+    .my_checkbox {
+      width: 30px;
+      height: 30px;
     }
 
+    .my_horizontalscroll {
+      overflow: auto;
+      white-space: nowrap;
+
+      button {
+        border: 1px solid $bnb-grey;
+        padding: 10px 20px;
+        margin-right: 10px;
+      }
+    }
+  }
 }
 
-
 @media screen and (min-width: 992px) {
+  .my_headerlg {
+    display: flex;
+    padding: 0px 150px;
+  }
 
-    .my_headerlg{
-        display: flex;
-        padding: 0px 150px;
-    }
+  .my_headermd {
+    display: none;
+  }
 
-    .my_headermd{
-        display: none;
-    }
-
-    .my_filterbutton{
-        padding: 4px 8px 5px 8px;
-        border: 1px solid $bnb-grey;
-        border-radius: 100%;
-    }
+  .my_filterbutton {
+    padding: 4px 8px 5px 8px;
+    border: 1px solid $bnb-grey;
+    border-radius: 100%;
+  }
 
     .my_searchbtnmd{
             color: $bnb-white;
@@ -855,5 +846,4 @@ export default {
 
 
 }
-
 </style>

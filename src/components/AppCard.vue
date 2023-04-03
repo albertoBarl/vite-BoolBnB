@@ -1,7 +1,12 @@
 <script>
 import axios from "axios";
 
+import AppSearch from "./AppSearch.vue";
+
 export default {
+  components: {
+    AppSearch,
+  },
   name: "AppCard",
   data() {
     return {
@@ -63,6 +68,7 @@ export default {
             </div>
         </div>
     </div>
+    <AppSearch />
 
 
 </template>

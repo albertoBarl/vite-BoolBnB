@@ -10,11 +10,4 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 
 library.add(fas, fab, far);
 
-import tt from "@tomtom-international/web-sdk-maps";
-
-const map = tt.map({
-  key: "<88h7OGbX03JY9XNCvFfNYmu0jPwzkmQ2>",
-  container: "map",
-});
-
 createApp(App).component("fa", FontAwesomeIcon).mount("#app");
