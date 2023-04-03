@@ -3,12 +3,14 @@
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
 import AppCard from './components/AppCard.vue'
+import AppSingleApt from './components/AppSingleApt.vue'
 
 export default {
     components: {
         AppHeader,
         AppFooter,
-        AppCard
+        AppCard,
+        AppSingleApt
     }
 }
 </script>
@@ -19,6 +21,7 @@ export default {
 
     <div class="container w-100 my_cardsapp">
         <AppCard />
+        <!-- <AppSingleApt /> -->
     </div>
 
     <AppFooter />
