@@ -1,7 +1,7 @@
 <script>
 import axios from "axios";
 
-import AppSearch from "./AppSearch.vue";
+import AppSearch from "../components/AppSearch.vue";
 
 export default {
   components: {

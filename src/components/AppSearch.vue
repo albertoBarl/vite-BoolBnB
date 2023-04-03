@@ -1,13 +1,14 @@
   <script>
 import axios from "axios";
+import { store } from "../store";
 
 export default {
   data() {
     return {
+      store,
       searchText: "",
       results: [],
       apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
-      poi: [],
     };
   },
   methods: {
@@ -21,9 +22,16 @@ export default {
         });
     },
     autoComplete(index) {
-      this.poi = this.results[index];
-      console.log(this.poi);
+      store.poi = this.results[index];
+      // console.log(store.poi);
     },
+    saveData() {
+    localStorage.setItem("storeData", JSON.stringify(this.store));
+  },
+  handleClick(index){
+    this.autoComplete(index);
+    this.saveData();
+  }
   },
 };
 </script>
@@ -37,11 +45,18 @@ export default {
     />
     <ul v-if="results.length">
       <li
-        @click="autoComplete(index)"
+        @click="handleClick(index)"
         v-for="(result, index) in results"
-        :key="index"
+        :key="index" @submit="saveData"
       >
-        {{ result.address.freeformAddress }}
+        <router-link
+          :to="{
+            name: 'search',
+            params: { place: result.address.freeformAddress },
+          }"
+        >
+          {{ result.address.freeformAddress }}
+        </router-link>
       </li>
     </ul>
   </div>
