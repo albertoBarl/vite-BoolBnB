@@ -68,7 +68,6 @@ export default {
             </div>
         </div>
     </div>
-    <AppSearch />
 
 
 </template>
