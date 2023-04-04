@@ -5,27 +5,28 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import AppSearch from "./AppSearch.vue";
 
 export default {
-  components: {
-    AppSearch,
-  },
-  data() {
-    return {
-      services: null,
-      baseUrl: "http://127.0.0.1:8000",
-    };
-  },
-  methods: {
-    getServices() {
-      axios.get(`${this.baseUrl}/api/services`).then((response) => {
-        this.services = response.data.results;
-        console.log(this.services);
-      });
+    components: {
+        AppSearch,
     },
-  },
-  mounted() {
-    this.getServices();
-  },
+    data() {
+        return {
+            services: null,
+            baseUrl: "http://127.0.0.1:8000",
+        };
+    },
+    methods: {
+        getServices() {
+            axios.get(`${this.baseUrl}/api/services`).then((response) => {
+                this.services = response.data.results;
+                console.log(this.services);
+            });
+        },
+    },
+    mounted() {
+        this.getServices();
+    },
 };
+
 </script>
 
 <template lang="">
@@ -344,15 +345,15 @@ export default {
 
         <div class="row">
 
-            <div class="col-1">
+            <div class="col">
                 <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-bs-backdrop="false">
                     <fa icon="sliders"/>
                 </button>
             </div>
 
-            <div class="col-11">
+            <div class="col">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
+                    <AppSearch />
                     <button class="btn my_searchbtnsm rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
                 </form>
             </div>
@@ -410,10 +411,10 @@ export default {
 
                 <div class="row align-items-center">
 
-                    <form class="d-flex" role="search">
+                    <!-- <form class="d-flex" role="search">
                         <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
                         <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" class="mx-1" /></button>
-                    </form>
+                    </form> -->
 
                 </div>
 
@@ -468,10 +469,10 @@ export default {
 
                 <div class="row align-items-center">
 
-                    <form class="d-flex" role="search">
+                    <!-- <form class="d-flex" role="search">
                         <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
                         <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
-                    </form>
+                    </form> -->
 
                 </div>
 
@@ -508,180 +509,180 @@ export default {
 @use "../styles/partials/variables.scss" as *;
 
 .my_headermd {
-  display: none;
+    display: none;
 }
 
 .my_headerlg {
-  display: none;
+    display: none;
 }
 
 .my_navmd {
-  display: none;
+    display: none;
 }
 
 .my_searchbtn {
-  border: 1px solid $bnb-grey;
-  border-radius: 50px;
-  margin: 20px 20px;
-  width: calc(100% - 40px);
-
-  .col-8 {
-    text-align: left;
-
-    .my_searchtitle {
-      font-size: 10pt;
-    }
-
-    p {
-      font-size: 8pt;
-      color: $bnb-grey;
-    }
-  }
-
-  .my_filterbutton {
-    padding: 4px 8px 5px 8px;
     border: 1px solid $bnb-grey;
-    border-radius: 100%;
-  }
+    border-radius: 50px;
+    margin: 20px 20px;
+    width: calc(100% - 40px);
+
+    .col-8 {
+        text-align: left;
+
+        .my_searchtitle {
+            font-size: 10pt;
+        }
+
+        p {
+            font-size: 8pt;
+            color: $bnb-grey;
+        }
+    }
+
+    .my_filterbutton {
+        padding: 4px 8px 5px 8px;
+        border: 1px solid $bnb-grey;
+        border-radius: 100%;
+    }
 }
 
 .my_searchbtnsm {
-  color: $bnb-white;
-  background-color: $bnb-red;
-  border: 1px solid $bnb-red;
-  padding: 7px 11px;
-}
-
-.my_searchbtnsm:hover {
-  color: $bnb-red;
-  background-color: $bnb-white;
-  border: 1px solid $bnb-red;
-}
-
-.my_mapbtn {
-  margin: -50px auto 10px auto;
-}
-
-.my_navico {
-  svg {
-    font-size: 19pt;
-    color: $bnb-grey;
-  }
-
-  .my_active {
-    color: $bnb-red;
-  }
-
-  p {
-    font-size: 10pt;
-  }
-}
-
-.my_offcanvasfilters {
-  height: 98vh !important;
-
-  .my_checkbox {
-    width: 30px;
-    height: 30px;
-  }
-
-  .my_horizontalscroll {
-    overflow: auto;
-    white-space: nowrap;
-
-    button {
-      border: 1px solid $bnb-grey;
-      padding: 10px 20px;
-      margin-right: 10px;
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .my_mapsm {
-    display: none;
-  }
-
-  .my_mapmd {
-    display: inline-block;
-  }
-
-  .my_headersm {
-    display: none;
-  }
-
-  .my_headermd {
-    display: flex;
-    width: 100vw;
-    padding: 0px 130px;
-
-    .my_filterbutton {
-      padding: 4px 8px 5px 8px;
-      border: 1px solid $bnb-grey;
-    }
-
-    .my_userbutton {
-      padding: 5px 10px 5px 10px;
-      border: 1px solid $bnb-grey;
-    }
-
-    .my_searchbtnmd {
-      color: $bnb-white;
-      background-color: $bnb-red;
-      padding: 7px;
-    }
-  }
-
-  .my_navsm {
-    display: none;
-  }
-
-  .my_modalfilters {
-    .my_checkbox {
-      width: 30px;
-      height: 30px;
-    }
-
-    .my_horizontalscroll {
-      overflow: auto;
-      white-space: nowrap;
-
-      button {
-        border: 1px solid $bnb-grey;
-        padding: 10px 20px;
-        margin-right: 10px;
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .my_headerlg {
-    display: flex;
-    padding: 0px 150px;
-  }
-
-  .my_headermd {
-    display: none;
-  }
-
-  .my_filterbutton {
-    padding: 4px 8px 5px 8px;
-    border: 1px solid $bnb-grey;
-    border-radius: 100%;
-  }
-
-  .my_searchbtnmd {
     color: $bnb-white;
     background-color: $bnb-red;
     border: 1px solid $bnb-red;
     padding: 7px 11px;
-  }
+}
 
-  .my_searchbtnmd:hover {
+.my_searchbtnsm:hover {
     color: $bnb-red;
     background-color: $bnb-white;
     border: 1px solid $bnb-red;
-  }
+}
+
+.my_mapbtn {
+    margin: -50px auto 10px auto;
+}
+
+.my_navico {
+    svg {
+        font-size: 19pt;
+        color: $bnb-grey;
+    }
+
+    .my_active {
+        color: $bnb-red;
+    }
+
+    p {
+        font-size: 10pt;
+    }
+}
+
+.my_offcanvasfilters {
+    height: 98vh !important;
+
+    .my_checkbox {
+        width: 30px;
+        height: 30px;
+    }
+
+    .my_horizontalscroll {
+        overflow: auto;
+        white-space: nowrap;
+
+        button {
+            border: 1px solid $bnb-grey;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .my_mapsm {
+        display: none;
+    }
+
+    .my_mapmd {
+        display: inline-block;
+    }
+
+    .my_headersm {
+        display: none;
+    }
+
+    .my_headermd {
+        display: flex;
+        width: 100vw;
+        padding: 0px 130px;
+
+        .my_filterbutton {
+            padding: 4px 8px 5px 8px;
+            border: 1px solid $bnb-grey;
+        }
+
+        .my_userbutton {
+            padding: 5px 10px 5px 10px;
+            border: 1px solid $bnb-grey;
+        }
+
+        .my_searchbtnmd {
+            color: $bnb-white;
+            background-color: $bnb-red;
+            padding: 7px;
+        }
+    }
+
+    .my_navsm {
+        display: none;
+    }
+
+    .my_modalfilters {
+        .my_checkbox {
+            width: 30px;
+            height: 30px;
+        }
+
+        .my_horizontalscroll {
+            overflow: auto;
+            white-space: nowrap;
+
+            button {
+                border: 1px solid $bnb-grey;
+                padding: 10px 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .my_headerlg {
+        display: flex;
+        padding: 0px 150px;
+    }
+
+    .my_headermd {
+        display: none;
+    }
+
+    .my_filterbutton {
+        padding: 4px 8px 5px 8px;
+        border: 1px solid $bnb-grey;
+        border-radius: 100%;
+    }
+
+    .my_searchbtnmd {
+        color: $bnb-white;
+        background-color: $bnb-red;
+        border: 1px solid $bnb-red;
+        padding: 7px 11px;
+    }
+
+    .my_searchbtnmd:hover {
+        color: $bnb-red;
+        background-color: $bnb-white;
+        border: 1px solid $bnb-red;
+    }
 }
 </style>
