@@ -1,19 +1,13 @@
 <script>
-
-
-import AppHeader from './components/AppHeader.vue'
-import AppFooter from './components/AppFooter.vue'
-// import AppCard from './components/AppCard.vue'
-
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
-    components: {
-        AppHeader,
-        AppFooter,
-        AppCard,
-        AppSingleApt
-    }
-}
+  components: {
+    AppHeader,
+    AppFooter,
+  },
+};
 </script>
 
 <template lang="">

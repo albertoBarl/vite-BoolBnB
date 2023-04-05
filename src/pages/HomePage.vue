@@ -2,12 +2,14 @@
 import axios from "axios";
 
 import AppSearch from "../components/AppSearch.vue";
+import AppCard from "../components/AppCard.vue";
 
 export default {
   components: {
     AppSearch,
+    AppCard,
   },
-  name: "AppCard",
+  name: "Homepage",
   data() {
     return {
       apartments: [],
@@ -50,21 +52,8 @@ export default {
             <div class="loader"></div>
         </div>
         <div v-else class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col">
-                <div class="card my_card border-0" v-for="apartment in apartments" :key="apartment.slug">
-                    <img v-bind:src="apartment.image != null ? `${this.baseUrl}/storage/${apartment.image}` : 'https://www.geometrian.it/wp-content/uploads/2016/12/image-placeholder-500x500.jpg' " class="card-img-top rounded" alt="...">
-                    <!-- <a href="#" class="my_heart"> <fa icon="heart" /> </a> -->
-                    <div class="card-body px-0">
-                        <p class="card-title mb-0">
-                            <div class="row">
-                                <div class="col-8"><strong>{{ apartment.title }}</strong></div>
-                                <div class="col-4 text-end"><fa icon="star" class="me-2" /> 4,91</div>
-                            </div>
-                        </p>
-                        <p class="card-text mb-0 text-secondary">Host professionista <br> 16 - 21 apr</p>
-                        <p class="card-text"><strong>118 €</strong> a notte </p>
-                    </div>
-                </div>
+            <div class="col" v-for="apartment in apartments" :key="apartment.slug">
+                <AppCard :apartment="apartment" />
             </div>
         </div>
     </div>
