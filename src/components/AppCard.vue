@@ -23,6 +23,7 @@ export default {
                 </p>
                 <p class="card-text mb-0 text-secondary">Host professionista <br> 16 - 21 apr</p>
                 <p class="card-text"><strong>118 €</strong> a notte </p>
+                <router-link class="btn btn-success" :to="{ name: 'single_apartment', params: { slug: apartment.slug } }">Leggi l'articolo</router-link>
             </div>
         </div>
     </div>

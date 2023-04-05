@@ -1,14 +1,37 @@
 <script>
+import { store } from "../store";
+import axios from "axios";
+
 export default {
-    
-}
+  name: "AppSingleApartment",
+  data() {
+    return {
+      apartment: null,
+      loading: true,
+      baseUrl: "http://127.0.0.1:8000",
+    };
+  },
+  mounted() {
+    // this.store.loadingLocal = true;
+    axios
+      .get(`${this.baseUrl}/api/apartments/${this.$route.params.slug}`)
+      .then((response) => {
+        this.apartment = response.data.results;
+        this.loading = false;
+      });
+  },
+};
 </script>
 
 <template lang="">
 
     <div class="container p-sm-0 p-lg-5">
 
-        <div class="row">
+        <div class="col-12 d-flex justify-content-center" v-if="loading">
+            <div class="loader"></div>
+        </div>
+
+        <div v-else class="row">
 
             <div class="col-lg-6 col-sm-12 justify-content-end">
                 <img src="https://i.ytimg.com/vi/PcFFSxw12qk/maxresdefault.jpg" alt="" class="my_aptimg">
@@ -61,87 +84,83 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 @use "../styles/partials/variables.scss" as *;
 
-.my_apticon{
-    color: $bnb-red;
+.my_apticon {
+  color: $bnb-red;
 }
 
-.my_sellerbtn{
-        color: $bnb-white;
-        background-color: $bnb-red;
-        border: 1px solid $bnb-red;
-        padding: 7px 11px;
-    }
-
-.my_sellerbtn:hover{
-    color: $bnb-red;
-    background-color: $bnb-white;
-    border: 1px solid $bnb-red;
+.my_sellerbtn {
+  color: $bnb-white;
+  background-color: $bnb-red;
+  border: 1px solid $bnb-red;
+  padding: 7px 11px;
 }
 
-.my_desclg{
-    display: none;
+.my_sellerbtn:hover {
+  color: $bnb-red;
+  background-color: $bnb-white;
+  border: 1px solid $bnb-red;
 }
 
-.my_aptimg{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}     
-
-.my_aptprice{
-    background-image: url('https://cdn-icons-png.flaticon.com/512/26/26640.png');
-    background-size: cover;
-    background-position: center;
-    rotate:(180deg);
-    padding: 10px;
-    color: $bnb-white;
-
-    h5{
-        rotate:(-180deg) !important;
-    }
+.my_desclg {
+  display: none;
 }
 
-.my_justify{
-    text-align: justify;
+.my_aptimg {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.my_aptprice {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/26/26640.png");
+  background-size: cover;
+  background-position: center;
+  rotate: (180deg);
+  padding: 10px;
+  color: $bnb-white;
+
+  h5 {
+    rotate: (-180deg) !important;
+  }
+}
+
+.my_justify {
+  text-align: justify;
 }
 
 @media screen and (min-width: 768px) {
-    .my_aptimg{
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-    }     
- 
-
+  .my_aptimg {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
 }
 
 @media screen and (min-width: 992px) {
-    .my_aptimg{
-        width: 500px;
-        height: 500px;
-        object-fit: cover;
-    }  
+  .my_aptimg {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
 
-    .my_aptprice{
-    rotate:(0deg);
+  .my_aptprice {
+    rotate: (0deg);
 
-        h5{
-            rotate:(0deg) !important;
-            text-align: left;
-            margin-left: 5px;
-        }
+    h5 {
+      rotate: (0deg) !important;
+      text-align: left;
+      margin-left: 5px;
     }
+  }
 
-    .my_descsm{
+  .my_descsm {
     display: none;
-    }
+  }
 
-    .my_desclg{
-        display: flex;
-    }
+  .my_desclg {
+    display: flex;
+  }
 }
-
 </style>
