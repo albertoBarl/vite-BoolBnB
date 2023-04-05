@@ -351,11 +351,13 @@ export default {
                 </button>
             </div>
 
+
             <div class="col">
                 <form class="d-flex" role="search">
                     <AppSearch />
+
                     <button class="btn my_searchbtnsm rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
-                </form>
+                </form> -->
             </div>
 
         </div>
@@ -411,8 +413,10 @@ export default {
 
                 <div class="row align-items-center">
 
+
                     <!-- <form class="d-flex" role="search">
                         <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
+
                         <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" class="mx-1" /></button>
                     </form> -->
 

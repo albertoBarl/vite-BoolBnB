@@ -31,11 +31,14 @@ export default {
     handleClick(index) {
       this.autoComplete(index);
       this.saveData();
-    }
+
+    },
+
   },
 };
 </script>
 <template>
+
   <div class="input-address">
     <input type="text" placeholder="cerca luogo" v-model="searchText" @input="getResults" />
     <ul v-show="results.length > 0" class="ul-address">
