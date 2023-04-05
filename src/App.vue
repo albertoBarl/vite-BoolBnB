@@ -1,15 +1,19 @@
 <script>
-import AppHeader from "./components/AppHeader.vue";
-import AppFooter from "./components/AppFooter.vue";
-// import AppCard from "./components/AppCard.vue";
+
+
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
+// import AppCard from './components/AppCard.vue'
+
 
 export default {
-  components: {
-    AppHeader,
-    AppFooter,
-    // AppCard,
-  },
-};
+    components: {
+        AppHeader,
+        AppFooter,
+        AppCard,
+        AppSingleApt
+    }
+}
 </script>
 
 <template lang="">
@@ -17,7 +21,9 @@ export default {
     <AppHeader />
 
     <div class="container w-100 my_cardsapp">
+
         <router-view></router-view>
+
     </div>
 
     <AppFooter />
