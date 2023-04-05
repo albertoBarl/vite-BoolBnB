@@ -60,15 +60,6 @@ export default {
   list-style-type: none;
 }
 
-li:before {
-  content: "\f015";
-  /* FontAwesome Unicode */
-  font-family: FontAwesome;
-  display: inline-block;
-  padding-right: 20px;
-  width: var(--icon-space);
-}
-
 .input-address {
   position: relative
 }
