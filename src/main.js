@@ -10,4 +10,6 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 
 library.add(fas, fab, far);
 
-createApp(App).component("fa", FontAwesomeIcon).mount("#app");
+import { router } from './router'
+
+createApp(App).component("fa", FontAwesomeIcon).use(router).mount("#app");

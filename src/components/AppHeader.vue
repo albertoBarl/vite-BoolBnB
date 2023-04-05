@@ -1,26 +1,35 @@
 <script>
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import AppSearch from "./AppSearch.vue";
 
 export default {
-  components: {
-    AppSearch,
-  },
+    components: {
+        AppSearch,
+    },
+    data() {
+        return {
+            services: null,
+            baseUrl: "http://127.0.0.1:8000",
+        };
+    },
+    methods: {
+        getServices() {
+            axios.get(`${this.baseUrl}/api/services`).then((response) => {
+                this.services = response.data.results;
+                console.log(this.services);
+            });
+        },
+    },
+    mounted() {
+        this.getServices();
+    },
 };
+
 </script>
 
 <template lang="">
-
-    <div class="offcanvas my_offcanvassearch offcanvas-top h-100" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title me-2" id="offcanvasTopLabel">Offcanvas top</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            ...
-        </div>
-    </div>
 
     <div class="offcanvas my_offcanvasfilters offcanvas-bottom rounded-top" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
         <div class="offcanvas-header pb-0">
@@ -29,53 +38,6 @@ export default {
         </div>
         <hr>
         <div class="offcanvas-body small px-3">
-            <!-- <section>
-                <h3>Fascia di prezzo</h3>
-                <p class="text-secondary">Il prezzo medio giornaliero è 210 €.</p>
-            </section>
-
-            <hr>
-
-            <section>
-                <h3 class="mb-3">Tipo di alloggio</h3>
-
-                <div class="row align-items-center mb-3">
-                    <div class="col-10">
-                        <label class="form-check-label" for="checkbox1">
-                            <h6>Tutta la casa</h6> <span class="text-secondary">Un alloggio tutto per te</span>
-                        </label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="checkbox1">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3">
-                    <div class="col-10">
-                        <label class="form-check-label" for="checkbox2">
-                            <h6>Stanza privata</h6> <span class="text-secondary">La tua stanza in un alloggio o hotel, più alcuni spazi comuni condivisi</span>
-                        </label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="checkbox2">
-                    </div>
-                </div>
-
-                <div class="row align-items-center">
-                    <div class="col-10">
-                        <label class="form-check-label" for="checkbox3">
-                            <h6>Stanza condivisa</h6> <span class="text-secondary">Uno spazio per dormire e aree comuni che possono essere condivise con altre persone</span>
-                        </label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="checkbox3">
-                    </div>
-                </div>
-
-            </section>
-
-            <hr> -->
-
             <section>
                 <h3 class="mb-3">Stanze e letti</h3>
 
@@ -136,6 +98,26 @@ export default {
                         <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">8+</button>
                     </div>
                 </div>
+
+                <br>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12"> <h5>Bagni</h5> </div>
+                </div>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12 d-flex my_horizontalscroll">
+                        <button type="button" class="btn btn-outline-dark rounded-pill active" data-bs-toggle="button" aria-pressed="true">Qualsiasi</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">1</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">2</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">3</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">4</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">5</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">6</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">7</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">8+</button>
+                    </div>
+                </div>
             </section>
 
             <hr>
@@ -143,123 +125,14 @@ export default {
             <section>
                 <h3>Servizi</h3>
                 
-                <div class="row align-items-center mb-3 fs-6">
+                <div class="row align-items-center mb-3 fs-6" v-for="item in services" :key="item.id">
                     <div class="col-10">
-                        <label class="form-check-label" for="servizio1">Wi-Fi</label>
+                        <label class="form-check-label">{{ item.name }}</label>
                     </div>
                     <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio1">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="{{ item.id }}">
                     </div>
                 </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio2">Piscina</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio2">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio3">Posto macchina</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio3">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio4">Portineria</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio4">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio5">Saunaaa</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio5">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio6">Vista mare</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio6">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio7">Vista lago</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio7">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio8">Aria condizionata</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio8">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio9">Riscaldamento</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio9">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio10">TV</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio10">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio11">Lavatrice</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio11">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio12">Palestra</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio12">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3 fs-6">
-                    <div class="col-10">
-                        <label class="form-check-label" for="servizio13">Barbecue</label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio13">
-                    </div>
-                </div>
-
             </section>
             
         </div>
@@ -353,131 +226,42 @@ export default {
                             <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">8+</button>
                         </div>
                     </div>
+
+                    <br>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12"> <h5>Bagni</h5> </div>
+                </div>
+
+                <div class="row justify-content-between mb-3">
+                    <div class="col-12 d-flex my_horizontalscroll">
+                        <button type="button" class="btn btn-outline-dark rounded-pill active" data-bs-toggle="button" aria-pressed="true">Qualsiasi</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">1</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">2</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">3</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">4</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">5</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">6</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">7</button>
+                        <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="button">8+</button>
+                    </div>
+                </div>
                 </section>
 
                 <hr>
 
                 <section>
-                    <h3>Servizi</h3>
-                    
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio1">Wi-Fi</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio1">
-                        </div>
+                <h3>Servizi</h3>
+                
+                <div class="row align-items-center mb-3 fs-6" v-for="item in services" :key="item.id">
+                    <div class="col-10">
+                        <label class="form-check-label">{{ item.name }}</label>
                     </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio2">Piscina</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio2">
-                        </div>
+                    <div class="col-2">
+                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="{{ item.id }}">
                     </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio3">Posto macchina</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio3">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio4">Portineria</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio4">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio5">Sauna</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio5">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio6">Vista mare</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio6">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio7">Vista lago</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio7">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio8">Aria condizionata</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio8">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio9">Riscaldamento</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio9">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio10">TV</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio10">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio11">Lavatrice</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio11">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio12">Palestra</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio12">
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-3 fs-6">
-                        <div class="col-10">
-                            <label class="form-check-label" for="servizio13">Barbecue</label>
-                        </div>
-                        <div class="col-2">
-                            <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="servizio13">
-                        </div>
-                    </div>
-
-                </section>
+                </div>
+            </section>
             </div>
         </div>
     </div>
@@ -510,10 +294,12 @@ export default {
                 </button>
             </div>
 
+
             <div class="col-11">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
-                    <button class="btn my_searchbtnsm rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
+                <form class="d-flex align-items-center" role="search">
+                    <AppSearch />
+
+                    <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit"><fa icon="magnifying-glass" /></button>
                 </form>
             </div>
 
@@ -570,10 +356,20 @@ export default {
 
                 <div class="row align-items-center">
 
-                    <form class="d-flex" role="search">
+
+                    <!-- <form class="d-flex" role="search">
                         <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
+
                         <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" class="mx-1" /></button>
-                    </form>
+                    </form> -->
+
+                    <div class="col-10">
+                        <form class="d-flex align-items-center" role="search">
+                            <AppSearch />
+
+                            <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit"><fa icon="magnifying-glass" /></button>
+                        </form>
+                    </div>
 
                 </div>
 
@@ -611,7 +407,7 @@ export default {
 
         <div class="row align-items-center px-5">
 
-            <div class="col-1">
+            <div class="col-2">
                 <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/1200px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="airbnb-logo-lg" class="img-fluid"></a>
             </div>
 
@@ -628,23 +424,31 @@ export default {
 
                 <div class="row align-items-center">
 
-                    <form class="d-flex" role="search">
+                    <!-- <form class="d-flex" role="search">
                         <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
                         <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
-                    </form>
+                    </form> -->
+
+                    <div class="col-10">
+                        <form class="d-flex align-items-center" role="search">
+                            <AppSearch />
+
+                            <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit"><fa icon="magnifying-glass" /></button>
+                        </form>
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="col-1">
+            <div class="col-2">
                 <button class="btn btn-outline-dark my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
                     <fa icon="sliders" class="me-2" /> Filtri
                 </button>
             </div>
 
-            <div class="col-4 d-flex justify-content-end">
-                <a href="#"><button class="btn" type="button"> Affitta con Airbnb </button></a>
+            <div class="col-2 d-flex justify-content-end align-items-center">
+                <a href="#"><button class="btn" type="button"> Affitta </button></a>
 
                     <div class="btn-group ms-3">
                         <button type="button" class="btn fs-5 my_userbutton shadow-sm rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -668,182 +472,180 @@ export default {
 @use "../styles/partials/variables.scss" as *;
 
 .my_headermd {
-  display: none;
+    display: none;
 }
 
 .my_headerlg {
-  display: none;
+    display: none;
 }
 
 .my_navmd {
-  display: none;
+    display: none;
 }
 
 .my_searchbtn {
-  border: 1px solid $bnb-grey;
-  border-radius: 50px;
-  margin: 20px 20px;
-  width: calc(100% - 40px);
-
-  .col-8 {
-    text-align: left;
-
-    .my_searchtitle {
-      font-size: 10pt;
-    }
-
-    p {
-      font-size: 8pt;
-      color: $bnb-grey;
-    }
-  }
-
-  .my_filterbutton {
-    padding: 4px 8px 5px 8px;
     border: 1px solid $bnb-grey;
-    border-radius: 100%;
-  }
-}
+    border-radius: 50px;
+    margin: 20px 20px;
+    width: calc(100% - 40px);
 
-.my_searchbtnsm{
-            color: $bnb-white;
-            background-color: $bnb-red;
-            border: 1px solid $bnb-red;
-            padding: 7px 11px;
+    .col-8 {
+        text-align: left;
+
+        .my_searchtitle {
+            font-size: 10pt;
         }
 
-    .my_searchbtnsm:hover{
-        color: $bnb-red;
-        background-color: $bnb-white;
-        border: 1px solid $bnb-red;
+        p {
+            font-size: 8pt;
+            color: $bnb-grey;
+        }
     }
-    
-.my_mapbtn{
+
+    .my_filterbutton {
+        padding: 4px 8px 5px 8px;
+        border: 1px solid $bnb-grey;
+        border-radius: 100%;
+    }
+}
+
+.my_searchbtnsm {
+    color: $bnb-white;
+    background-color: $bnb-red;
+    border: 1px solid $bnb-red;
+    padding: 7px 11px;
+}
+
+.my_searchbtnsm:hover {
+    color: $bnb-red;
+    background-color: $bnb-white;
+    border: 1px solid $bnb-red;
+}
+
+.my_mapbtn {
     margin: -50px auto 10px auto;
 }
 
 .my_navico {
-  svg {
-    font-size: 19pt;
-    color: $bnb-grey;
-  }
+    svg {
+        font-size: 19pt;
+        color: $bnb-grey;
+    }
 
-  .my_active {
-    color: $bnb-red;
-  }
+    .my_active {
+        color: $bnb-red;
+    }
 
-  p {
-    font-size: 10pt;
-  }
+    p {
+        font-size: 10pt;
+    }
 }
 
 .my_offcanvasfilters {
-  height: 98vh !important;
+    height: 98vh !important;
 
-  .my_checkbox {
-    width: 30px;
-    height: 30px;
-  }
-
-  .my_horizontalscroll {
-    overflow: auto;
-    white-space: nowrap;
-
-    button {
-      border: 1px solid $bnb-grey;
-      padding: 10px 20px;
-      margin-right: 10px;
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .my_mapsm {
-    display: none;
-  }
-
-  .my_mapmd {
-    display: inline-block;
-  }
-
-  .my_headersm {
-    display: none;
-  }
-
-  .my_headermd {
-    display: flex;
-    width: 100vw;
-    padding: 0px 130px;
-
-    .my_filterbutton {
-      padding: 4px 8px 5px 8px;
-      border: 1px solid $bnb-grey;
-    }
-
-    .my_userbutton {
-      padding: 5px 10px 5px 10px;
-      border: 1px solid $bnb-grey;
-    }
-
-    .my_searchbtnmd {
-      color: $bnb-white;
-      background-color: $bnb-red;
-      padding: 7px;
-    }
-  }
-
-  .my_navsm {
-    display: none;
-  }
-
-  .my_modalfilters {
     .my_checkbox {
-      width: 30px;
-      height: 30px;
+        width: 30px;
+        height: 30px;
     }
 
     .my_horizontalscroll {
-      overflow: auto;
-      white-space: nowrap;
+        overflow: auto;
+        white-space: nowrap;
 
-      button {
-        border: 1px solid $bnb-grey;
-        padding: 10px 20px;
-        margin-right: 10px;
-      }
+        button {
+            border: 1px solid $bnb-grey;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
     }
-  }
+}
+
+@media screen and (min-width: 768px) {
+    .my_mapsm {
+        display: none;
+    }
+
+    .my_mapmd {
+        display: inline-block;
+    }
+
+    .my_headersm {
+        display: none;
+    }
+
+    .my_headermd {
+        display: flex;
+        width: 100vw;
+        padding: 0px 130px;
+
+        .my_filterbutton {
+            padding: 4px 8px 5px 8px;
+            border: 1px solid $bnb-grey;
+        }
+
+        .my_userbutton {
+            padding: 5px 10px 5px 10px;
+            border: 1px solid $bnb-grey;
+        }
+
+        .my_searchbtnmd {
+            color: $bnb-white;
+            background-color: $bnb-red;
+            padding: 7px;
+        }
+    }
+
+    .my_navsm {
+        display: none;
+    }
+
+    .my_modalfilters {
+        .my_checkbox {
+            width: 30px;
+            height: 30px;
+        }
+
+        .my_horizontalscroll {
+            overflow: auto;
+            white-space: nowrap;
+
+            button {
+                border: 1px solid $bnb-grey;
+                padding: 10px 20px;
+                margin-right: 10px;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 992px) {
-  .my_headerlg {
-    display: flex;
-    padding: 0px 150px;
-  }
+    .my_headerlg {
+        display: flex;
+        padding: 0px 150px;
+    }
 
-  .my_headermd {
-    display: none;
-  }
+    .my_headermd {
+        display: none;
+    }
 
-  .my_filterbutton {
-    padding: 4px 8px 5px 8px;
-    border: 1px solid $bnb-grey;
-    border-radius: 100%;
-  }
+    .my_filterbutton {
+        padding: 4px 8px 5px 8px;
+        border: 1px solid $bnb-grey;
+        border-radius: 100%;
+    }
 
-    .my_searchbtnmd{
-            color: $bnb-white;
-            background-color: $bnb-red;
-            border: 1px solid $bnb-red;
-            padding: 7px 11px;
-        }
+    .my_searchbtnmd {
+        color: $bnb-white;
+        background-color: $bnb-red;
+        border: 1px solid $bnb-red;
+        padding: 7px 11px;
+    }
 
-    .my_searchbtnmd:hover{
+    .my_searchbtnmd:hover {
         color: $bnb-red;
         background-color: $bnb-white;
         border: 1px solid $bnb-red;
     }
-
-
 }
 </style>
