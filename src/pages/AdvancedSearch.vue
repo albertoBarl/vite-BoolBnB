@@ -10,10 +10,6 @@ export default {
       //   loading: true,
       baseUrl: "http://127.0.0.1:8000",
       apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
-      // lat1: store.poi.position.lat,
-      // long1: store.poi.position.lon,
-      lat2: 51.5074,
-      long2: 0.1278,
     }
   },
   methods: {
@@ -75,12 +71,12 @@ export default {
         a
     </div> -->
     <div v-for="apartment in apartments" :key="apartments.id">
-      <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
-   <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
-   <p>Distance: {{ calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) }} Km</p>
-    </div>
-    <div  > 
-        {{ store.poi }}
+      <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
+      <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
+      <p>Distance: {{ calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) }} Km</p> -->
+   <div v-if="calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) < 20 " class="text-danger">
+    {{apartment.title}}
+  </div>
     </div>
 </template>
 
