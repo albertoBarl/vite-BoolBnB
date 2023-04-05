@@ -6,46 +6,79 @@ export default {
   data() {
     return {
       store,
-      integer: null,
-      position: null,
+      apartments: null,
       //   loading: true,
       baseUrl: "http://127.0.0.1:8000",
       apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
+      // lat1: store.poi.position.lat,
+      // long1: store.poi.position.lon,
+      lat2: 51.5074,
+      long2: 0.1278,
     }
   },
   methods: {
-  saveData() {
-    localStorage.setItem("storeData", JSON.stringify(this.store));
-  },
-  loadData() {
-    const storeData = localStorage.getItem("storeData");
-    if (storeData) {
-      this.store = JSON.parse(storeData);
+    getApartments() {
+      axios
+        .get(`${this.baseUrl}/api/apartments`)
+        .then((response) => {
+          this.apartments = response.data.results.data
+          console.log(this.apartments);
+        });
+    },
+    saveData() {
+      localStorage.setItem("storeData", JSON.stringify(this.store));
+    },
+    loadData() {
+      const storeData = localStorage.getItem("storeData");
+      if (storeData) {
+        this.store = JSON.parse(storeData);
+      }
+    },
+    clearData() {
+      localStorage.removeItem("storeData");
+    },
+    calculateDistance(lat1, lng1, lat2, lng2) {
+      const radius = 6371; // Earth's radius in km
+      const dLat = this.toRadians(lat2 - lat1);
+      const dLng = this.toRadians(lng2 - lng1);
+      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(this.toRadians(lat1)) * Math.cos(this.toRadians(lat2)) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = radius * c;
+
+      return distance.toFixed(2);
+    },
+    toRadians(degree) {
+      return degree * (Math.PI / 180);
     }
   },
-  clearData() {
-    localStorage.removeItem("storeData");
-  }
-},
   beforeRouteLeave(to, from, next) {
     this.clearData();
     next();
-},
+  },
   beforeDestroy() {
     this.clearData();
     window.removeEventListener("popstate", this.clearData);
-},
+  },
   mounted() {
     this.loadData();
     window.addEventListener("popstate", this.clearData);
-}
+    this.getApartments();
+  }
 };
+
 </script>
 
 <template lang="">
     <!-- <div v-if="loading">
         a
     </div> -->
+    <div v-for="apartment in apartments" :key="apartments.id">
+      <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
+   <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
+   <p>Distance: {{ calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) }} Km</p>
+    </div>
     <div  > 
         {{ store.poi }}
     </div>
