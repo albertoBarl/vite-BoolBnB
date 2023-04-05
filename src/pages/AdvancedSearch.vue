@@ -2,6 +2,8 @@
 import axios from "axios";
 import { store } from "../store";
 
+import AppCard from "../components/AppCard.vue";
+
 export default {
   data() {
     return {
@@ -10,16 +12,17 @@ export default {
       //   loading: true,
       baseUrl: "http://127.0.0.1:8000",
       apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
-    }
+    };
+  },
+  components: {
+    AppCard,
   },
   methods: {
     getApartments() {
-      axios
-        .get(`${this.baseUrl}/api/apartments`)
-        .then((response) => {
-          this.apartments = response.data.results.data
-          console.log(this.apartments);
-        });
+      axios.get(`${this.baseUrl}/api/apartments`).then((response) => {
+        this.apartments = response.data.results.data;
+        console.log(this.apartments);
+      });
     },
     saveData() {
       localStorage.setItem("storeData", JSON.stringify(this.store));
@@ -37,9 +40,12 @@ export default {
       const radius = 6371; // Earth's radius in km
       const dLat = this.toRadians(lat2 - lat1);
       const dLng = this.toRadians(lng2 - lng1);
-      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(this.toRadians(lat1)) * Math.cos(this.toRadians(lat2)) *
-        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(this.toRadians(lat1)) *
+          Math.cos(this.toRadians(lat2)) *
+          Math.sin(dLng / 2) *
+          Math.sin(dLng / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       const distance = radius * c;
 
@@ -47,7 +53,7 @@ export default {
     },
     toRadians(degree) {
       return degree * (Math.PI / 180);
-    }
+    },
   },
   beforeRouteLeave(to, from, next) {
     this.clearData();
@@ -61,9 +67,8 @@ export default {
     this.loadData();
     window.addEventListener("popstate", this.clearData);
     this.getApartments();
-  }
+  },
 };
-
 </script>
 
 <template lang="">
@@ -75,7 +80,7 @@ export default {
       <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
       <p>Distance: {{ calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) }} Km</p> -->
    <div v-if="calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) < 20 " class="text-danger">
-    {{apartment.title}}
+    <AppCard :apartment="apartment" />
   </div>
     </div>
 </template>

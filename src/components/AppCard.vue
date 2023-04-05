@@ -1,9 +1,14 @@
 <script>
 export default {
-    props: {
-        apartment: Object
-    }
-}
+  data() {
+    return {
+      baseUrl: "http://127.0.0.1:8000",
+    };
+  },
+  props: {
+    apartment: Object,
+  },
+};
 </script>
 <template lang="">
     <div>
@@ -23,5 +28,4 @@ export default {
     </div>
 </template>
 <style lang="">
-    
 </style>

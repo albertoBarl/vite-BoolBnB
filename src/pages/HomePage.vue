@@ -7,9 +7,9 @@ import AppCard from "../components/AppCard.vue";
 export default {
   components: {
     AppSearch,
-    AppCard
+    AppCard,
   },
-  name: "AppCard",
+  name: "Homepage",
   data() {
     return {
       apartments: [],
