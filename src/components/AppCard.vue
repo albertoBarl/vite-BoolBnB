@@ -23,11 +23,21 @@ export default {
                 <p class="card-title mb-0">
                     <div class="row">
                         <div class="col-8"><strong>{{ apartment.title }}</strong></div>
-                        <div class="col-4 text-end"><fa icon="star" class="me-2" /> 4,91</div>
                     </div>
                 </p>
-                <p class="card-text mb-0 text-secondary">Host professionista <br> 16 - 21 apr</p>
-                <p class="card-text"><strong>118 €</strong> a notte </p>
+                <p class="card-text mb-0 text-secondary">{{ apartment.description }}</p>
+                <div class="row col-12">
+                    <div class="col-4 align-items-center p-2">
+                        <fa :icon="['fab', 'codepen']" class="me-2 my_apticon" /> {{ apartment.square_feet }}&#178;
+                    </div>
+                    <div class="col-4 align-items-center p-2">
+                        <fa icon="bed" class="me-2 my_apticon" /> {{ apartment.room}}
+                    </div>
+                    <div class="col-4 align-items-center p-2">
+                        <fa icon="person-half-dress" class="me-2 my_apticon" /> {{ apartment.bathroom }}
+                    </div>
+                </div>
+                <!-- <p class="card-text"><strong>118 €</strong> a notte  -->
                 <router-link class="btn btn-success" :to="{ name: 'single_apartment', params: { slug: apartment.slug } }">Leggi l'articolo</router-link>
             </div>
         </div>
