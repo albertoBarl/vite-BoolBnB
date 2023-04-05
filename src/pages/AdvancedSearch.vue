@@ -3,6 +3,7 @@ import axios from "axios";
 import { store } from "../store";
 
 import AppCard from "../components/AppCard.vue";
+import AppFilter from "../components/AppFilter.vue";
 
 export default {
   data() {
@@ -12,10 +13,12 @@ export default {
       //   loading: true,
       baseUrl: "http://127.0.0.1:8000",
       apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
+      services: null,
     };
   },
   components: {
     AppCard,
+    AppFilter,
   },
   methods: {
     getApartments() {
@@ -43,9 +46,9 @@ export default {
       const a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
         Math.cos(this.toRadians(lat1)) *
-          Math.cos(this.toRadians(lat2)) *
-          Math.sin(dLng / 2) *
-          Math.sin(dLng / 2);
+        Math.cos(this.toRadians(lat2)) *
+        Math.sin(dLng / 2) *
+        Math.sin(dLng / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       const distance = radius * c;
 
@@ -75,6 +78,7 @@ export default {
     <!-- <div v-if="loading">
         a
     </div> -->
+    <AppFilter />
     <div v-for="apartment in apartments" :key="apartments.id">
       <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
       <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>

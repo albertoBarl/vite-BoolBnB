@@ -14,7 +14,7 @@ export default {
   mounted() {
     // this.store.loadingLocal = true;
     axios
-      .get(`${this.baseUrl}/api/apartments/${this.$route.params.slug}`)
+      .get(`${this.baseUrl}/api/apartments/${this.$route.params.id}`)
       .then((response) => {
         this.apartment = response.data.results;
         this.loading = false;
