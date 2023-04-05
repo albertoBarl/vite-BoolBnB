@@ -34,7 +34,7 @@ export default {
         <div v-else class="row">
 
             <div class="col-lg-6 col-sm-12 justify-content-end">
-                <img v-bind:src="apartment.image != null ? `${this.baseUrl}/storage/${apartment.image}` : 'https://www.geometrian.it/wp-content/uploads/2016/12/image-placeholder-500x500.jpg'" class="my_aptimg">
+                <img v-bind:src="apartment.image != null ? `${this.baseUrl}/${apartment.image}` : 'https://www.geometrian.it/wp-content/uploads/2016/12/image-placeholder-500x500.jpg'" class="my_aptimg">
             </div>
 
             <div class="col-lg-6 col-sm-12 justify-content-start">

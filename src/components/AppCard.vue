@@ -13,7 +13,12 @@ export default {
 <template lang="">
     <div>
         <div class="card my_card border-0">
-            <img v-bind:src="apartment.image != null ? `${this.baseUrl}/storage/${apartment.image}` : 'https://www.geometrian.it/wp-content/uploads/2016/12/image-placeholder-500x500.jpg' " class="card-img-top rounded" alt="...">
+            <div v-if="apartment.image.includes('post_images')">
+                <img class="card-img-top rounded" :src="`${this.baseUrl}/storage/${apartment.image}`" alt="">
+            </div>
+            <div v-else>
+                <img class="card-img-top rounded" :src="`${apartment.image}`" alt="">
+            </div>
             <div class="card-body px-0">
                 <p class="card-title mb-0">
                     <div class="row">
