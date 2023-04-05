@@ -39,8 +39,8 @@ export default {
 </script>
 <template>
 
-  <div class="input-address">
-    <input type="text" placeholder="cerca luogo" v-model="searchText" @input="getResults" />
+  <div class="input-address w-100">
+    <input type="text" placeholder="Cerca luogo..." class="rounded-pill w-100 py-2 px-3 border shadow-sm" v-model="searchText" @input="getResults" />
     <ul v-show="results.length > 0" class="ul-address">
       <li v-for="(result, index) in results" :key="index" @click="handleClick(index)" class="li-address">
         <router-link :to="{ name: 'search', params: { place: result.address.freeformAddress } }"
@@ -64,7 +64,7 @@ export default {
 }
 
 .input-address {
-  position: relative
+  position: relative;
 }
 
 ul {
