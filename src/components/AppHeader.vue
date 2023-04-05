@@ -31,16 +31,6 @@ export default {
 
 <template lang="">
 
-    <div class="offcanvas my_offcanvassearch offcanvas-top h-100" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title me-2" id="offcanvasTopLabel">Offcanvas top</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            ...
-        </div>
-    </div>
-
     <div class="offcanvas my_offcanvasfilters offcanvas-bottom rounded-top" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
         <div class="offcanvas-header pb-0">
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -48,53 +38,6 @@ export default {
         </div>
         <hr>
         <div class="offcanvas-body small px-3">
-            <!-- <section>
-                <h3>Fascia di prezzo</h3>
-                <p class="text-secondary">Il prezzo medio giornaliero è 210 €.</p>
-            </section>
-
-            <hr>
-
-            <section>
-                <h3 class="mb-3">Tipo di alloggio</h3>
-
-                <div class="row align-items-center mb-3">
-                    <div class="col-10">
-                        <label class="form-check-label" for="checkbox1">
-                            <h6>Tutta la casa</h6> <span class="text-secondary">Un alloggio tutto per te</span>
-                        </label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="checkbox1">
-                    </div>
-                </div>
-
-                <div class="row align-items-center mb-3">
-                    <div class="col-10">
-                        <label class="form-check-label" for="checkbox2">
-                            <h6>Stanza privata</h6> <span class="text-secondary">La tua stanza in un alloggio o hotel, più alcuni spazi comuni condivisi</span>
-                        </label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="checkbox2">
-                    </div>
-                </div>
-
-                <div class="row align-items-center">
-                    <div class="col-10">
-                        <label class="form-check-label" for="checkbox3">
-                            <h6>Stanza condivisa</h6> <span class="text-secondary">Uno spazio per dormire e aree comuni che possono essere condivise con altre persone</span>
-                        </label>
-                    </div>
-                    <div class="col-2">
-                        <input class="form-check-input my_checkbox float-end" type="checkbox" value="" id="checkbox3">
-                    </div>
-                </div>
-
-            </section>
-
-            <hr> -->
-
             <section>
                 <h3 class="mb-3">Stanze e letti</h3>
 
@@ -345,19 +288,19 @@ export default {
 
         <div class="row">
 
-            <div class="col">
+            <div class="col-1">
                 <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-bs-backdrop="false">
                     <fa icon="sliders"/>
                 </button>
             </div>
 
 
-            <div class="col">
-                <form class="d-flex" role="search">
+            <div class="col-11">
+                <form class="d-flex align-items-center" role="search">
                     <AppSearch />
 
-                    <button class="btn my_searchbtnsm rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
-                </form> -->
+                    <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit"><fa icon="magnifying-glass" /></button>
+                </form>
             </div>
 
         </div>
@@ -420,6 +363,14 @@ export default {
                         <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" class="mx-1" /></button>
                     </form> -->
 
+                    <div class="col-10">
+                        <form class="d-flex align-items-center" role="search">
+                            <AppSearch />
+
+                            <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit"><fa icon="magnifying-glass" /></button>
+                        </form>
+                    </div>
+
                 </div>
 
             </div>
@@ -456,7 +407,7 @@ export default {
 
         <div class="row align-items-center px-5">
 
-            <div class="col-1">
+            <div class="col-2">
                 <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/1200px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="airbnb-logo-lg" class="img-fluid"></a>
             </div>
 
@@ -478,18 +429,26 @@ export default {
                         <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
                     </form> -->
 
+                    <div class="col-10">
+                        <form class="d-flex align-items-center" role="search">
+                            <AppSearch />
+
+                            <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit"><fa icon="magnifying-glass" /></button>
+                        </form>
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="col-1">
+            <div class="col-2">
                 <button class="btn btn-outline-dark my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
                     <fa icon="sliders" class="me-2" /> Filtri
                 </button>
             </div>
 
-            <div class="col-4 d-flex justify-content-end">
-                <a href="#"><button class="btn" type="button"> Affitta con Airbnb </button></a>
+            <div class="col-2 d-flex justify-content-end align-items-center">
+                <a href="#"><button class="btn" type="button"> Affitta </button></a>
 
                     <div class="btn-group ms-3">
                         <button type="button" class="btn fs-5 my_userbutton shadow-sm rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
