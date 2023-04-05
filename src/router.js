@@ -18,7 +18,7 @@ const router = createRouter({
             component: AdvancedSearch
         },
         {
-            path: '/homepage/:slug',
+            path: '/:slug',
             name: 'single_apartment',
             component: AppSingleApartment
         }
