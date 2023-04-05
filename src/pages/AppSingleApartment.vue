@@ -34,15 +34,15 @@ export default {
         <div v-else class="row">
 
             <div class="col-lg-6 col-sm-12 justify-content-end">
-                <img src="https://i.ytimg.com/vi/PcFFSxw12qk/maxresdefault.jpg" alt="" class="my_aptimg">
+                <img v-bind:src="apartment.image != null ? `${this.baseUrl}/storage/${apartment.image}` : 'https://www.geometrian.it/wp-content/uploads/2016/12/image-placeholder-500x500.jpg'" class="my_aptimg">
             </div>
 
             <div class="col-lg-6 col-sm-12 justify-content-start">
 
                 <div class="row mt-4"> 
                     <div class="col-sm-9 col-lg-12 text-wrap">
-                        <h2>Apartment Title</h2> 
-                        <p>Address Street, 69</p>
+                        <h2>{{ apartment.title }}</h2> 
+                        <p>{{ apartment.address }}</p>
                     </div>
                     <div class="col-sm-3 col-lg-3 text-end">
                         <div class="my_aptprice"><h5 class="me-3">500€</h5></div>
@@ -52,19 +52,19 @@ export default {
                 
                 <div class="row mt-2 text-center">
                     <div class="col-4 border-end align-items-center p-2">
-                        <fa :icon="['fab', 'codepen']" class="me-2 my_apticon" /> 60m&#178;
+                        <fa :icon="['fab', 'codepen']" class="me-2 my_apticon" /> {{ apartment.square_feet }}&#178;
                     </div>
                     <div class="col-4 border-end align-items-center p-2">
-                        <fa icon="bed" class="me-2 my_apticon" /> 6
+                        <fa icon="bed" class="me-2 my_apticon" /> {{ apartment.room}}
                     </div>
                     <div class="col-4 align-items-center p-2">
-                        <fa icon="person-half-dress" class="me-2 my_apticon" /> 2
+                        <fa icon="person-half-dress" class="me-2 my_apticon" /> {{ apartment.bathroom }}
                     </div>
                 </div>
 
                 <div class="row my_desclg">
                     <div class="row mt-4 text-wrap my_justify">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aspernatur cumque nostrum laudantium tenetur velit voluptatem dolorem deleniti hic deserunt labore, iure, dolorum laborum officia ab et fugit quas suscipit.</p>
+                        <p>{{ apartment.description }}</p>
                         <a href="#"><button class="btn mt-4 w-100 my_sellerbtn">Contatta il venditore</button></a>
                     </div>
                 </div>
