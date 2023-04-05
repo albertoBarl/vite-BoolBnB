@@ -37,6 +37,10 @@ export default {
 
             var bagni = document.querySelector('input[name="bagni"]:checked').value;
             console.log('Bagni:', bagni);
+
+            var select = document.querySelector('.form-select'); // seleziona l'elemento della select
+            var selectedValue = select.value; // recupera il valore selezionato
+            console.log(selectedValue);
         },
         mounted() {
             this.getServices();
@@ -203,10 +207,10 @@ export default {
                     </div>
 
                     <select class="form-select" aria-label="Default select example">
-                        <option selected>Scegli metri quadri</option>
-                        <option value="1">50m2</option>
-                        <option value="2">100m2</option>
-                        <option value="3">200+m2</option>
+                        <option value="" selected>Scegli metri quadri</option>
+                        <option value="50">50 m°2</option>
+                        <option value="100">100 m°2</option>
+                        <option value="200">200+ m°2</option>
                     </select>
 
                     <div class="row justify-content-between mb-3">
