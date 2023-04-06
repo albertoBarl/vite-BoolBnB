@@ -391,9 +391,8 @@ export default {
                             <fa :icon="['far', 'circle-user']" />
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Registrati</a></li>
-                            <li><a class="dropdown-item" href="#">Accedi</a></li>
-                            <li><a class="dropdown-item" href="#">Affitta con Airbnb</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">Registrati</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">Accedi</a></li>
                         </ul>
                     </div>
             </div>                        
@@ -455,9 +454,8 @@ export default {
                             <fa :icon="['far', 'circle-user']" />
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Registrati</a></li>
-                            <li><a class="dropdown-item" href="#">Accedi</a></li>
-                            <li><a class="dropdown-item" href="#">Affitta con Airbnb</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">Registrati</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/login">Accedi</a></li>
                         </ul>
                     </div>
             </div>                        
