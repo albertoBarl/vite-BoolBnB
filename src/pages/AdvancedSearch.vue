@@ -21,6 +21,11 @@ export default {
     AppFilter,
   },
   methods: {
+    filtedApartment(bagniStore, ApartmentBagni, Appartamento) {
+      if (bagniStore != 0 && bagniStore == ApartmentBagni) {
+        return Appartamento
+      }
+    },
     getApartments() {
       axios.get(`${this.baseUrl}/api/apartments`).then((response) => {
         this.apartments = response.data.results.data;
@@ -84,7 +89,7 @@ export default {
       <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
       <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
       <p>Distance: {{ calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) }} Km</p> -->
-   <div v-if="calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) < 20 " class="text-danger">
+   <div v-if="calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) < 20">
     <AppCard :apartment="apartment" />
   </div>
     </div>

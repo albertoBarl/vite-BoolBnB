@@ -1,5 +1,6 @@
 <script>
 import axios from "axios";
+import { store } from "../store";
 
 export default {
     data() {
@@ -7,9 +8,8 @@ export default {
             baseUrl: "http://127.0.0.1:8000",
             apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
             services: null,
+            store,
 
-            selectedCamere: '',
-            selectedBagni: '',
 
             options: [
                 { label: 'Qualsiasi', value: '' },
@@ -20,7 +20,13 @@ export default {
                 { label: '5', value: '5' },
                 { label: '6', value: '6' },
                 { label: '7', value: '7' },
-                { label: '8+', value: '8+' }
+                { label: '8+', value: '8' }
+            ],
+            meters: [
+                { label: 'Qualsiasi', value: '' },
+                { label: '50', value: '50' },
+                { label: '100', value: '100' },
+                { label: '200', value: '200' },
             ]
         }
     },
@@ -38,9 +44,8 @@ export default {
             var bagni = document.querySelector('input[name="bagni"]:checked').value;
             console.log('Bagni:', bagni);
 
-            var select = document.querySelector('.form-select'); // seleziona l'elemento della select
-            var selectedValue = select.value; // recupera il valore selezionato
-            console.log(selectedValue);
+            var metri = document.querySelector('input[name="metri"]:checked').value;
+            console.log('metri:', metri);
         },
         mounted() {
             this.getServices();
@@ -193,10 +198,13 @@ export default {
 
                     <div class="row justify-content-between mb-3">
                         <div class="col-12 d-flex my_horizontalscroll">
-                            <label v-for="(option, index) in options" :key="index" class="btn btn-outline-dark rounded-pill" :class="{ active: selectedCamere === option.value }">
-                            <input type="radio" v-model="selectedCamere" :value="option.value" name="camere">
+                            <label v-for="(option, index) in options" :key="index" class="btn btn-outline-dark rounded-pill" :class="{ active: store.selectedCamere === option.value }">
+                            <input type="radio" v-model="store.selectedCamere" :value="option.value" name="camere">
                             {{ option.label }}
                             </label>
+                            <div>
+                                {{store.selectedCamere}}
+                            </div>
                         </div>
                     </div>
 
@@ -206,12 +214,18 @@ export default {
                         <div class="col-12"> <h5>metri</h5> </div>
                     </div>
 
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="" selected>Scegli metri quadri</option>
-                        <option value="50">50 m°2</option>
-                        <option value="100">100 m°2</option>
-                        <option value="200">200+ m°2</option>
-                    </select>
+                    <div class="row justify-content-between mb-3">
+                        <div class="col-12 d-flex my_horizontalscroll">
+                            <label v-for="(option, index) in meters" :key="index" class="btn btn-outline-dark rounded-pill"
+                                :class="{ active: store.selectedMetri === option.value }">
+                            <input type="radio" v-model="store.selectedMetri" :value="option.value" name="metri">
+                            {{ option.label }}
+                            </label>
+                            <div>
+                                {{store.selectedMetri}}
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row justify-content-between mb-3">
                         <div class="col-12"> <h5>Bagni</h5> </div>
@@ -220,10 +234,13 @@ export default {
                     <div class="row justify-content-between mb-3">
                         <div class="col-12 d-flex my_horizontalscroll">
                             <label v-for="(option, index) in options" :key="index" class="btn btn-outline-dark rounded-pill"
-                                :class="{ active: selectedBagni === option.value }">
-                            <input type="radio" v-model="selectedBagni" :value="option.value" name="bagni">
+                                :class="{ active: store.selectedBagni === option.value }">
+                            <input type="radio" v-model="store.selectedBagni" :value="option.value" name="bagni">
                             {{ option.label }}
                             </label>
+                            <div>
+                                {{store.selectedBagni}}
+                            </div>
                         </div>
                     </div>
                 </section>

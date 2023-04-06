@@ -1,5 +1,8 @@
 import { reactive } from "vue";
 
 export const store = reactive({
-    poi: []
+    poi: [],
+    selectedCamere: '',
+    selectedBagni: '',
+    selectedMetri: '',
 })
