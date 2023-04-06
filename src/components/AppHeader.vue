@@ -326,11 +326,20 @@ export default {
                 <fa :icon="['fas', 'heart']" /><br>
                 <p>Preferiti</p>
             </button> -->
+            
+            <div class="btn-group dropup">
 
-            <button class="btn my_navico mb-0 text-center">
-                <fa :icon="['far', 'circle-user']" /><br>
-                <p>Accedi</p>
-            </button>
+                <button class="btn my_navico mb-0 text-center rounded" data-bs-toggle="dropdown" aria-expanded="false">
+                    <fa :icon="['far', 'circle-user']" /><br>
+                    <p>Account</p>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">Registrati</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/login">Accedi</a></li>
+                </ul>
+
+            </div>
 
         </div>  
 
