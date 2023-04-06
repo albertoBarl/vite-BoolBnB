@@ -59,10 +59,12 @@ export default {
           <div class="col-sm-9 col-lg-12 text-wrap">
             <h2>
               {{ apartment.title }}
+              <span
+                class="btn btn-dark"
+                v-if="apartment.sponsors[0] != undefined"
+                >{{ apartment.sponsors[0].title }}</span
+              >
             </h2>
-            <!-- <span class="btn btn-dark">{{
-                apartment.sponsors[0].title
-              }}</span> -->
             <p>{{ apartment.address }}</p>
           </div>
           <!-- <div class="col-sm-3 col-lg-3 text-end">
