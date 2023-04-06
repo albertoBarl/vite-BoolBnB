@@ -1,13 +1,13 @@
 <script>
 export default {
-  data() {
-    return {
-      baseUrl: "http://127.0.0.1:8000",
-    };
-  },
-  props: {
-    apartment: Object,
-  },
+    data() {
+        return {
+            baseUrl: "http://127.0.0.1:8000",
+        };
+    },
+    props: {
+        apartment: Object,
+    },
 };
 </script>
 <template lang="">
@@ -19,6 +19,10 @@ export default {
                     <div class="row">
                         <div class="col-8"><strong>{{ apartment.title }}</strong></div>
                         <div class="col-4 text-end"><fa icon="star" class="me-2" /> 4,91</div>
+                        <div class="col-8"><strong>{{ apartment.bathroom }}</strong></div>
+                        <div class="col-8"><strong>{{ apartment.room }}</strong></div>
+                        <div class="col-8"><strong>{{ apartment.square_feet }}</strong></div>
+
                     </div>
                 </p>
                 <p class="card-text mb-0 text-secondary">Host professionista <br> 16 - 21 apr</p>

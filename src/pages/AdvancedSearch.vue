@@ -71,6 +71,7 @@ export default {
     window.addEventListener("popstate", this.clearData);
     this.getApartments();
   },
+
 };
 </script>
 
