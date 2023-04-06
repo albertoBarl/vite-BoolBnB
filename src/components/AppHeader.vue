@@ -35,14 +35,14 @@ export default {
 
         <div class="row">
 
-            <div class="col-1">
+            <!-- <div class="col-1">
                 <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-bs-backdrop="false">
                     <fa icon="sliders"/>
                 </button>
-            </div>
+            </div> -->
 
 
-            <div class="col-11">
+            <div class="col-12">
                 <form class="d-flex align-items-center" role="search">
                     <AppSearch />
 
@@ -110,7 +110,7 @@ export default {
                         <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" class="mx-1" /></button>
                     </form> -->
 
-                    <div class="col-10">
+                    <div class="col-12">
                         <form class="d-flex align-items-center" role="search">
                             <AppSearch />
 
@@ -122,17 +122,17 @@ export default {
 
             </div>
 
-            <div class="col-2">
+            <!-- <div class="col-2">
                 <button class="btn my_filterbutton rounded btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
                     <fa icon="sliders" class="me-2" /> Filtri
                 </button>
+            </div> -->
+
+            <div class="col-4 text-end">
+                <a href="#"><button class="btn" type="button"> Affitta strutture con Airbnb </button></a>
             </div>
 
-            <div class="col-3">
-                <a href="#"><button class="btn" type="button"> Affitta con Airbnb </button></a>
-            </div>
-
-            <div class="col-1">
+            <div class="col-2 text-end">
                     <div class="btn-group">
                         <button type="button" class="btn fs-5 my_userbutton shadow-sm rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
                             <fa :icon="['far', 'circle-user']" />
@@ -176,7 +176,7 @@ export default {
                         <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
                     </form> -->
 
-                    <div class="col-10">
+                    <div class="col-12">
                         <form class="d-flex align-items-center" role="search">
                             <AppSearch />
 
@@ -188,14 +188,14 @@ export default {
 
             </div>
 
-            <div class="col-2">
+            <!-- <div class="col-2">
                 <button class="btn btn-outline-dark my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
                     <fa icon="sliders" class="me-2" /> Filtri
                 </button>
-            </div>
+            </div> -->
 
-            <div class="col-2 d-flex justify-content-end align-items-center">
-                <a href="#"><button class="btn" type="button"> Affitta </button></a>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a href="#"><button class="btn" type="button"> Affitta strutture con Airbnb </button></a>
 
                     <div class="btn-group ms-3">
                         <button type="button" class="btn fs-5 my_userbutton shadow-sm rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
