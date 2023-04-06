@@ -14,10 +14,10 @@ export default {
     <div>
         <div class="card my_card border-0">
             <div v-if="apartment.image.includes('post_images')">
-                <img class="card-img-top rounded" :src="`${this.baseUrl}/storage/${apartment.image}`" alt="">
+                <img class="card-img-top my_cardimg rounded" :src="`${this.baseUrl}/storage/${apartment.image}`" alt="">
             </div>
             <div v-else>
-                <img class="card-img-top rounded" :src="`${apartment.image}`" alt="">
+                <img class="card-img-top my_cardimg rounded" :src="`${apartment.image}`" alt="">
             </div>
             <div class="card-body px-0">
                 <p class="card-title mb-0">
@@ -43,5 +43,14 @@ export default {
         </div>
     </div>
 </template>
-<style lang="">
+
+<style lang="scss" scoped>
+
+.my_cardimg{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
 </style>
