@@ -8,43 +8,55 @@ export default {
       store,
       searchText: "",
       results: [],
-      apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
     };
   },
   methods: {
     getResults() {
       axios
         .get(
-          `https://api.tomtom.com/search/2/geocode/${this.searchText}.json?key=${this.apiKey}`
+          `${this.store.baseUrl}${this.searchText}.json?key=${this.store.apiKey}`
         )
         .then((response) => {
           this.results = response.data.results;
         });
     },
-    autoComplete(index) {
-      store.poi = this.results[index];
-      // console.log(store.poi);
-    },
-    saveData() {
-      localStorage.setItem("storeData", JSON.stringify(this.store));
-    },
-    handleClick(index) {
-      this.autoComplete(index);
-      this.saveData();
-
-    },
-
+    // autoComplete(index) {
+    //   store.poi = this.results[index];
+    //   // console.log(store.poi);
+    // },
+    // saveData() {
+    //   localStorage.setItem("storeData", JSON.stringify(this.store));
+    // },
+    // handleClick(index) {
+    //   this.autoComplete(index);
+    //   this.saveData();
+    // },
   },
 };
 </script>
 <template>
-
   <div class="input-address w-100">
-    <input type="text" placeholder="Cerca luogo..." class="rounded-pill w-100 py-2 px-3 border shadow-sm" v-model="searchText" @input="getResults" />
+    <input
+      type="text"
+      placeholder="Cerca luogo..."
+      class="rounded-pill w-100 py-2 px-3 border shadow-sm"
+      v-model="searchText"
+      @input="getResults"
+    />
     <ul v-show="results.length > 0" class="ul-address">
-      <li v-for="(result, index) in results" :key="index" @click="handleClick(index)" class="li-address">
-        <router-link :to="{ name: 'search', params: { place: result.address.freeformAddress } }"
-          class="text-decoration-none text-black">
+      <li
+        v-for="(result, index) in results"
+        :key="index"
+        @click="handleClick(index)"
+        class="li-address"
+      >
+        <router-link
+          :to="{
+            name: 'search',
+            params: { place: result.address.freeformAddress },
+          }"
+          class="text-decoration-none text-black"
+        >
           {{ result.address.freeformAddress }}
         </router-link>
       </li>
@@ -75,7 +87,6 @@ ul {
   max-height: 200px;
   overflow-y: auto;
   z-index: 1;
-
 }
 
 /* width */
@@ -98,4 +109,3 @@ ul {
   background: #555;
 }
 </style>
-  
