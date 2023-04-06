@@ -26,19 +26,21 @@ export default {
                     </div>
                 </p>
                 <p class="card-text mb-0 text-secondary">{{ apartment.description }}</p>
-                <div class="row col-12">
-                    <div class="col-4 align-items-center p-2">
-                        <fa :icon="['fab', 'codepen']" class="me-2 my_apticon" /> {{ apartment.square_feet }}&#178;
+                <div class="row col-12 p-2 my-2 text-center">
+                    <div class="col-4 align-items-center border-end">
+                        <fa :icon="['fab', 'codepen']" class="me-2 ms-1 my_apticon" /> {{ apartment.square_feet }}&#178;
                     </div>
-                    <div class="col-4 align-items-center p-2">
+                    <div class="col-4 align-items-center border-end">
                         <fa icon="bed" class="me-2 my_apticon" /> {{ apartment.room}}
                     </div>
-                    <div class="col-4 align-items-center p-2">
+                    <div class="col-4 align-items-center">
                         <fa icon="person-half-dress" class="me-2 my_apticon" /> {{ apartment.bathroom }}
                     </div>
+
+                    
                 </div>
                 <!-- <p class="card-text"><strong>118 €</strong> a notte  -->
-                <router-link class="btn btn-success" :to="{ name: 'single_apartment', params: { slug: apartment.slug } }">Leggi l'articolo</router-link>
+                <router-link class="btn my_detailsbtn w-100" :to="{ name: 'single_apartment', params: { slug: apartment.slug } }">Vedi dettagli</router-link>
             </div>
         </div>
     </div>
@@ -46,11 +48,26 @@ export default {
 
 <style lang="scss" scoped>
 
+@use "../styles/partials/variables.scss" as *;
+
 .my_cardimg{
     width: 100%;
     height: 300px;
     object-fit: cover;
     object-position: center;
+}
+
+.my_detailsbtn {
+    color: $bnb-white;
+    background-color: $bnb-red;
+    border: 1px solid $bnb-red;
+    padding: 7px 11px;
+}
+
+.my_detailsbtn:hover {
+    color: $bnb-red;
+    background-color: $bnb-white;
+    border: 1px solid $bnb-red;
 }
 
 </style>
