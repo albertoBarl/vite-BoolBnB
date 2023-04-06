@@ -57,7 +57,8 @@ export default {
             </div>
         </div>
     </div>
-    <nav>
+
+    <nav class="my_pagination w-100 mt-5">
       <ul class="pagination">
         <li :class="currentPage === 1 ? 'disabled' : 'page-item'">
           <button class="page-link" @click="getApartments(currentPage - 1)">Prev</button>
@@ -83,15 +84,6 @@ export default {
     position: relative;
   }
 
-  .my_heart {
-    font-size: 20pt;
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    color: rgba(0, 0, 0, 0.5);
-    stroke: white;
-    stroke-width: 40px;
-  }
 }
 
 .loader {
