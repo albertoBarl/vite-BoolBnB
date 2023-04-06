@@ -33,6 +33,12 @@ export default {
 
         <div v-else class="row">
 
+            <div class="row">
+              <div class="col-12">
+                <a href="http://localhost:5173/"><button class="btn mb-4 my_sellerbtn">Torna alla lista <fa icon="reply" class="ms-1" /></button></a>
+              </div>
+            </div>
+
             <div v-if="apartment.image.includes('post_images')" class="col-lg-6 col-sm-12 justify-content-end">
                 <img class="my_aptimg" :src="`${this.baseUrl}/storage/${apartment.image}`" alt="">
             </div>
@@ -47,10 +53,10 @@ export default {
                         <h2>{{ apartment.title }}</h2> 
                         <p>{{ apartment.address }}</p>
                     </div>
-                    <div class="col-sm-3 col-lg-3 text-end">
+                    <!-- <div class="col-sm-3 col-lg-3 text-end">
                         <div class="my_aptprice"><h5 class="me-3">500€</h5></div>
                     </div>
-                    <div class="col-lg-9"></div>
+                    <div class="col-lg-9"></div> -->
                 </div>
                 
                 <div class="row mt-2 text-center">
@@ -195,7 +201,7 @@ export default {
 
 @media screen and (min-width: 992px) {
   .my_aptimg {
-    width: 500px;
+    width: 100%;
     height: 500px;
     object-fit: cover;
   }
@@ -218,4 +224,13 @@ export default {
     display: flex;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .my_aptimg {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
+}
+
 </style>
