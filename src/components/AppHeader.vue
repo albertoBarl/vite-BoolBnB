@@ -309,11 +309,11 @@ export default {
 
     <nav class="w-100 fixed-bottom bg-light border-top my_navsm">
 
-        <div class="container w-100 my_mapbtn text-center">
+        <!-- <div class="container w-100 my_mapbtn text-center">
             <a href="#">
                 <button class="btn btn-dark rounded-pill my_mapsm"> Mappa <fa :icon="['fas', 'map']" /></button>
             </a>
-        </div>
+        </div> -->
 
         <div class="container justify-content-center d-flex pt-3">
 
