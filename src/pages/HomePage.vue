@@ -57,6 +57,16 @@ export default {
             </div>
         </div>
     </div>
+    <nav>
+      <ul class="pagination">
+        <li :class="currentPage === 1 ? 'disabled' : 'page-item'">
+          <button class="page-link" @click="getApartments(currentPage - 1)">Prev</button>
+        </li>
+        <li :class="currentPage === lastPage ? 'disabled' : 'page-item'">
+          <button class="page-link" @click="getApartments(currentPage + 1)">next</button>
+        </li>
+      </ul>
+    </nav>
 
 
 </template>

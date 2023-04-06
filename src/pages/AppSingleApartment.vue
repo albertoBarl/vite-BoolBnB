@@ -33,8 +33,11 @@ export default {
 
         <div v-else class="row">
 
-            <div class="col-lg-6 col-sm-12 justify-content-end">
-                <img v-bind:src="apartment.image != null ? `${this.baseUrl}/storage/${apartment.image}` : 'https://www.geometrian.it/wp-content/uploads/2016/12/image-placeholder-500x500.jpg'" class="my_aptimg">
+            <div v-if="apartment.image.includes('post_images')" class="col-lg-6 col-sm-12 justify-content-end">
+                <img class="my_aptimg" :src="`${this.baseUrl}/storage/${apartment.image}`" alt="">
+            </div>
+            <div v-else class="col-lg-6 col-sm-12 justify-content-end">
+                <img class="my_aptimg" :src="`${apartment.image}`" alt="">
             </div>
 
             <div class="col-lg-6 col-sm-12 justify-content-start">
