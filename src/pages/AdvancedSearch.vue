@@ -75,6 +75,12 @@ export default {
     this.loadData();
     window.addEventListener("popstate", this.clearData);
     this.getApartments();
+
+    axios.get(`${this.baseUrl}/api/services`).then((response) => {
+      this.services = response.data.results;
+      console.log(response.data.results);
+    });
+
   },
 
 };
@@ -84,7 +90,7 @@ export default {
     <!-- <div v-if="loading">
         a
     </div> -->
-    <AppFilter />
+    <AppFilter :services="services" />
 
     <div class="row my_searchrow">
 

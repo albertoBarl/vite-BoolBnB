@@ -7,7 +7,6 @@ export default {
         return {
             baseUrl: "http://127.0.0.1:8000",
             apiKey: "98ObIc3GfaoIHmTeR31cHCEP87hLeSmB",
-            services: null,
             store,
 
 
@@ -30,13 +29,11 @@ export default {
             ]
         }
     },
+    props: {
+        services: Array
+    },
     methods: {
-        getServices() {
-            axios.get(`${this.baseUrl}/api/services`).then((response) => {
-                this.services = response.data.results;
-                console.log(this.services);
-            });
-        },
+
         myFunction() {
             var camere = document.querySelector('input[name="camere"]:checked').value;
             console.log('Camere:', camere);
@@ -46,9 +43,6 @@ export default {
 
             var metri = document.querySelector('input[name="metri"]:checked').value;
             console.log('metri:', metri);
-        },
-        mounted() {
-            this.getServices();
         },
     }
 }
