@@ -21,9 +21,9 @@ export default {
     AppFilter,
   },
   methods: {
-    filtedApartment(bagniStore, ApartmentBagni, Appartamento) {
-      if (bagniStore != 0 && bagniStore == ApartmentBagni) {
-        return Appartamento
+    filtedApartment(bagniStore, Appartamento) {
+      if (bagniStore == null) {
+        console.log(Appartamento)
       }
     },
     getApartments() {
@@ -112,7 +112,7 @@ export default {
       <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
       <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
       <p>Distance: {{ calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) }} Km</p> -->
-   <div v-if="calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) < 20">
+   <div v-if="calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) < 20 && store.selectedBagni == 0">
     <AppCard :apartment="apartment" />
   </div>
     </div>
