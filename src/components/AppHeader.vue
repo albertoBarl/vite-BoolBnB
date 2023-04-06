@@ -339,28 +339,65 @@ export default {
 
     <header class="w-100 fixed-top bg-light shadow-sm my_headermd px-5 py-3">
 
-        <div class="row align-items-center">
+        <!-- <div class="row align-items-center">
 
             <div class="col-1">
                 <a href="#"><img src="https://seeklogo.com/images/A/airbnb-logo-1D03C48906-seeklogo.com.png" alt="airbnb-logo-sm" class="img-fluid"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/1200px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="airbnb-logo-sm" class="img-fluid" style="width:5000px;"></a>
             </div>
 
-            <div class="col-5">
+            <div class="col-9">
 
-                <!-- <button class="btn my_searchbtn shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-backdrop="false">
+                <div class="row align-items-center">
+
+                    <div class="col-12">
+                        <form class="d-flex align-items-center" role="search">
+                            <AppSearch />
+
+                            <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit"><fa icon="magnifying-glass" /></button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-2 text-end">
+                    <div class="btn-group">
+                        <button type="button" class="btn fs-5 my_userbutton shadow-sm rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
+                             <fa :icon="['far', 'circle-user']" />
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">Registrati</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">Accedi</a></li>
+                        </ul>
+                    </div>
+            </div>                        
+
+        </div> -->
+
+        <div class="row align-items-center px-5">
+
+            <div class="col-2">
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/1200px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="airbnb-logo-lg" class="img-fluid"></a>
+            </div>
+
+            <div class="col-1"></div>
+
+            <div class="col-7 justify-content-center">
+
+                <!--<button class="btn my_searchbtn shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-backdrop="false">
                     <div class="row align-items-center">
                         <div class="col-9 text-start ps-3"> Ovunque... </div>
                         <div class="col-3 text-end mt-1"> <fa icon="magnifying-glass" class="my_searchbtnmd rounded-circle" /> </div>
                     </div>
-                </button> -->
+                </button>-->
 
                 <div class="row align-items-center">
 
-
                     <!-- <form class="d-flex" role="search">
                         <input class="form-control me-2 shadow-sm rounded-pill" type="search" placeholder="Ovunque..." aria-label="Search">
-
-                        <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" class="mx-1" /></button>
+                        <button class="btn my_searchbtnmd rounded-circle" type="submit"><fa icon="magnifying-glass" /></button>
                     </form> -->
 
                     <div class="col-12">
@@ -375,29 +412,21 @@ export default {
 
             </div>
 
-            <!-- <div class="col-2">
-                <button class="btn my_filterbutton rounded btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
-                    <fa icon="sliders" class="me-2" /> Filtri
-                </button>
-            </div> -->
+            <div class="col-2 d-flex justify-content-end align-items-center">
+                <!-- <a href="#"><button class="btn" type="button"> Affitta strutture con Airbnb </button></a> -->
 
-            <div class="col-4 text-end">
-                <a href="#"><button class="btn" type="button"> Affitta strutture con Airbnb </button></a>
-            </div>
-
-            <div class="col-2 text-end">
-                    <div class="btn-group">
+                    <div class="btn-group ms-3">
                         <button type="button" class="btn fs-5 my_userbutton shadow-sm rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
                             <fa :icon="['far', 'circle-user']" />
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">Registrati</a></li>
-                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/register">Accedi</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/login">Accedi</a></li>
                         </ul>
                     </div>
             </div>                        
 
-        </div>
+            </div>
 
     </header>
 
@@ -447,7 +476,7 @@ export default {
             </div> -->
 
             <div class="col-4 d-flex justify-content-end align-items-center">
-                <a href="#"><button class="btn" type="button"> Affitta strutture con Airbnb </button></a>
+                <!-- <a href="#"><button class="btn" type="button"> Affitta strutture con Airbnb </button></a> -->
 
                     <div class="btn-group ms-3">
                         <button type="button" class="btn fs-5 my_userbutton shadow-sm rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
