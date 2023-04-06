@@ -68,7 +68,35 @@ export default {
                 <div class="row my_desclg">
                     <div class="row mt-4 text-wrap my_justify">
                         <p>{{ apartment.description }}</p>
-                        <a href="#"><button class="btn mt-4 w-100 my_sellerbtn">Contatta il venditore</button></a>
+                        <button class="btn mt-4 w-100 my_sellerbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Contatta il venditore</button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Contatta il venditore!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <div>
+                                  <div class="input-group mb-3">
+                                    <span class="input-group-text my_sellerbtn" id="basic-addon1">@</span>
+                                    <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+                                  <div>
+                                    <div class="input-group">
+                                      <span class="input-group-text my_sellerbtn">Contenuto</span>
+                                      <textarea class="form-control" aria-label="With textarea"></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                <button type="button" class="btn btn-primary my_sellerbtn">Invia Email al venditore!</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                 </div>
 
@@ -79,6 +107,29 @@ export default {
         <div class="row mt-4 text-wrap my_justify my_descsm">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aspernatur cumque nostrum laudantium tenetur velit voluptatem dolorem deleniti hic deserunt labore, iure, dolorum laborum officia ab et fugit quas suscipit.</p>
             <a href="#"><button class="btn mt-4 w-100 my_sellerbtn">Contatta il venditore</button></a>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
 
 
