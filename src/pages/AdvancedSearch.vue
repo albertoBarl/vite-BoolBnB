@@ -75,6 +75,23 @@ export default {
     <!-- <div v-if="loading">
         a
     </div> -->
+
+    <div class="row my_searchrow">
+
+      <div class="col-12 pb-sm-4 pb-lg-2 border-bottom text-end my_btnsm">
+          <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-bs-backdrop="false">
+              <fa icon="sliders" class="" /> Filtri
+          </button>
+      </div>
+
+      <div class="col-12 pb-sm-4 pb-lg-2 border-bottom text-end my_btnmd">
+          <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
+              <fa icon="sliders" class="" /> Filtri
+          </button>
+      </div>
+
+    </div>
+
     <div v-for="apartment in apartments" :key="apartments.id">
       <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
       <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
@@ -85,5 +102,26 @@ export default {
     </div>
 </template>
 
-<style lang="">
+<style lang="scss" scoped>
+
+.my_searchrow{
+  margin-top: -20px;
+}
+
+.my_btnmd{
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+
+  .my_btnsm{
+    display: none;
+  }
+
+  .my_btnmd{
+    display: inline;
+  }
+
+}
+
 </style>
