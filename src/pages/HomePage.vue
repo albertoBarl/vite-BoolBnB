@@ -15,22 +15,23 @@ export default {
       store,
       apartments: [],
       loading: true,
-      currentPage: 1,
-      lastPage: null,
     };
   },
   methods: {
-    getApartments(apartment_page) {
+    getApartments() {
       this.loading = true;
       axios
-        .get(`${this.store.baseUrl}/api/apartments`, {
-          params: { page: apartment_page },
+        .get(`${this.store.baseUrl}/api/apartments/search`, {
+          location: store.location,
+          rooms: this.rooms,
+          beds: this.beds,
+          range: this.radius,
+          services: this.apServices,
         })
         .then((response) => {
           if (response.data.success) {
-            this.apartments = response.data.results.data;
-            this.currentPage = response.data.results.current_page;
-            this.lastPage = response.data.results.last_page;
+            console.log(response.data);
+            store.apList.results;
             this.loading = false;
           } else {
             //pagina errore
@@ -46,7 +47,7 @@ export default {
     },
   },
   mounted() {
-    this.getApartments(this.currentPage);
+    this.getApartments();
     this.getServices();
   },
 };
@@ -67,7 +68,7 @@ export default {
     </div>
   </div>
 
-  <nav class="my_pagination w-100 mt-5">
+  <!-- <nav class="my_pagination w-100 mt-5">
     <ul class="pagination">
       <li :class="currentPage === 1 ? 'disabled' : 'page-item'">
         <button class="page-link" @click="getApartments(currentPage - 1)">
@@ -80,7 +81,7 @@ export default {
         </button>
       </li>
     </ul>
-  </nav>
+  </nav> -->
 </template>
 
 <style lang="scss" scoped>

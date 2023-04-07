@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { store } from "../store";
 
 import AppSearch from "./AppSearch.vue";
 
@@ -10,28 +11,35 @@ export default {
   },
   data() {
     return {
-      services: null,
-      baseUrl: "http://127.0.0.1:8000",
+      store,
+      services: [],
+      range: "",
+      beds: "",
+      rooms: "",
+      apServices: [],
     };
   },
   methods: {
     getServices() {
-      axios.get(`${this.baseUrl}/api/services`).then((response) => {
+      axios.get(`${this.store.baseUrl}/api/services`).then((response) => {
         this.services = response.data.results;
       });
     },
-    getSearch() {
-      axios.get(`${this.store.baseUrl}/api/apartments/search`, {
-        location: store.location,
-        rooms: this.rooms,
-        beds: this.beds,
-        range: this.radius,
-        services: this.apServices,
-      });
+    getSearch(param) {
+      axios
+        .get(`${this.store.baseUrl}/api/apartments`, {
+          street: param,
+        })
+        .then((response) => {
+          if (response.data.success) {
+            store.apList = response.data.results;
+          }
+        });
     },
   },
   mounted() {
     this.getServices();
+    // this.getSearch(apUrlString);
   },
 };
 </script>

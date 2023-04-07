@@ -11,26 +11,14 @@ export default {
     };
   },
   methods: {
-    getResults() {
-      axios
-        .get(
-          `${this.store.baseUrl}${this.searchText}.json?key=${this.store.apiKey}`
-        )
-        .then((response) => {
-          this.results = response.data.results;
-        });
+    replaceSpaces(str, replacement) {
+      // find white spaces
+      let regex = /\s+/g;
+      // replace white spaces with %20
+      let replacedStr = str.replace(regex, replacement);
+      // modified string
+      return replacedStr;
     },
-    // autoComplete(index) {
-    //   store.poi = this.results[index];
-    //   // console.log(store.poi);
-    // },
-    // saveData() {
-    //   localStorage.setItem("storeData", JSON.stringify(this.store));
-    // },
-    // handleClick(index) {
-    //   this.autoComplete(index);
-    //   this.saveData();
-    // },
   },
 };
 </script>

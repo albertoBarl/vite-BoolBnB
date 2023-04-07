@@ -1,8 +1,9 @@
 <script>
+import { store } from '../store';
 export default {
   data() {
     return {
-      baseUrl: "http://127.0.0.1:8000",
+        store,
     };
   },
   props: {
@@ -14,7 +15,7 @@ export default {
     <div>
         <div class="card my_card border-0">
             <div v-if="apartment.image.includes('post_images')">
-                <img class="card-img-top my_cardimg rounded" :src="`${this.baseUrl}/storage/${apartment.image}`" alt="">
+                <img class="card-img-top my_cardimg rounded" :src="`${this.store.baseUrl}/storage/${apartment.image}`" alt="">
             </div>
             <div v-else>
                 <img class="card-img-top my_cardimg rounded" :src="`${apartment.image}`" alt="">
