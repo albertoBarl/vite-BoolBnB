@@ -117,38 +117,6 @@ export default {
               Contatta il venditore
             </button>
 
-
-          <!--prova-->
-          <div>
-              <h2>Nuovo Messaggio</h2>
-              <form @submit.prevent="saveMessage">
-                <div>
-                  <label for="email">email:</label>
-                  <input type="email" id="email" name="email" v-model="form.email"/>
-                </div>
-                <div>
-                  <label for="name">nome:</label>
-                  <input type="text" id="name" name="name" v-model="form.name"/>
-                </div>
-                <div>
-                  <label for="surname">cognome:</label>
-                  <input type="text" id="surname" name="surname" v-model="form.surname"/>
-                </div>
-                <div>
-                  <label for="content">contenuto:</label>
-                  <textarea id="content" name="content" v-model="form.content"></textarea>
-                </div>
-                <div>
-                  <label for="apartment_id">id:</label>
-                  <input type="number" id="apartment_id" name="apartment_id" v-model="form.apartment_id">
-                </div>
-                <button type="submit">Salva messaggio</button>
-              </form>
-          </div>
-
-
-
-
             <div
               class="modal fade"
               id="exampleModal"
@@ -171,44 +139,31 @@ export default {
                   </div>
                   <div class="modal-body">
                     <div>
-                      <div class="input-group mb-3">
-                        <span
-                          class="input-group-text my_sellerbtn"
-                          id="basic-addon1"
-                          >@</span
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Email"
-                          aria-label="Username"
-                          aria-describedby="basic-addon1"
-                        />
-                      </div>
-                      <div>
-                        <div class="input-group">
-                          <span class="input-group-text my_sellerbtn"
-                            >Contenuto</span
-                          >
-                          <textarea
-                            class="form-control"
-                            aria-label="With textarea"
-                          ></textarea>
+                      <h2>Nuovo Messaggio</h2>
+                      <form @submit.prevent="saveMessage">
+                        <div>
+                          <label for="email">email:</label>
+                          <input type="email" id="email" name="email" v-model="form.email"/>
                         </div>
-                      </div>
+                        <div>
+                          <label for="name">nome:</label>
+                          <input type="text" id="name" name="name" v-model="form.name"/>
+                        </div>
+                        <div>
+                          <label for="surname">cognome:</label>
+                          <input type="text" id="surname" name="surname" v-model="form.surname"/>
+                        </div>
+                        <div>
+                          <label for="content">contenuto:</label>
+                          <textarea id="content" name="content" v-model="form.content"></textarea>
+                        </div>
+                        <div>
+                          <label for="apartment_id">id:</label>
+                          <input type="number" id="apartment_id" name="apartment_id" v-model="form.apartment_id">
+                        </div>
+                        <button type="submit">Salva messaggio</button>
+                      </form>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Annulla
-                    </button>
-                    <button type="button" class="btn btn-primary my_sellerbtn">
-                      Invia Email al venditore!
-                    </button>
                   </div>
                 </div>
               </div>
