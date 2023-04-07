@@ -9,7 +9,25 @@ export default {
       apartment: null,
       loading: true,
       baseUrl: "http://127.0.0.1:8000",
+      form: {
+        email: '',
+        content: '',
+        apartment_id: '',
+      }
     };
+  },
+  methods: {
+    saveMessage() {
+      axios.post(`${this.baseUrl}/api/messages`, this.form)
+        .then(response => {
+          this.messages = response.data.results;
+          console.log(this.messages);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      console.log(this.form)
+    }
   },
   mounted() {
     // this.store.loadingLocal = true;
@@ -98,6 +116,39 @@ export default {
             >
               Contatta il venditore
             </button>
+
+
+          <!--prova-->
+          <div>
+              <h2>Nuovo Messaggio</h2>
+              <form @submit.prevent="saveMessage">
+                <div>
+                  <label for="email">email:</label>
+                  <input type="email" id="email" name="email" v-model="form.email"/>
+                </div>
+                <div>
+                  <label for="name">nome:</label>
+                  <input type="text" id="name" name="name" v-model="form.name"/>
+                </div>
+                <div>
+                  <label for="surname">cognome:</label>
+                  <input type="text" id="surname" name="surname" v-model="form.surname"/>
+                </div>
+                <div>
+                  <label for="content">contenuto:</label>
+                  <textarea id="content" name="content" v-model="form.content"></textarea>
+                </div>
+                <div>
+                  <label for="apartment_id">id:</label>
+                  <input type="number" id="apartment_id" name="apartment_id" v-model="form.apartment_id">
+                </div>
+                <button type="submit">Salva messaggio</button>
+              </form>
+          </div>
+
+
+
+
             <div
               class="modal fade"
               id="exampleModal"
