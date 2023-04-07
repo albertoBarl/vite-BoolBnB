@@ -162,11 +162,11 @@ export default {
 
     <footer class="bg-light border-top my_footermd fixed-bottom">
 
-        <div class="container w-100 my_mapbtn text-center">
+        <!-- <div class="container w-100 my_mapbtn text-center">
             <a href="#">
                 <button class="btn btn-dark rounded-pill my_mapmd"> Mostra la mappa <fa :icon="['fas', 'map']" /></button>
             </a>
-        </div>
+        </div> -->
 
 
             <div class="row align-items-center my_footercontainer">
