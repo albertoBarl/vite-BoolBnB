@@ -27,13 +27,20 @@ export default {
                 </p>
                 <p class="card-text mb-0 text-secondary">{{ apartment.description }}</p>
                 <div class="row col-12 p-2 my-2 text-center">
-                    <div class="col-4 align-items-center border-end">
-                        <fa :icon="['fab', 'codepen']" class="me-2 ms-1 my_apticon" /> {{ apartment.square_feet }}&#178;
+
+                    <div class="col-3 align-items-center border-end">
+                        <fa :icon="['fab', 'codepen']" class="me-2 ms-1 my_apticon" /> {{ apartment.square_feet }}m&#178;
                     </div>
-                    <div class="col-4 align-items-center border-end">
-                        <fa icon="bed" class="me-2 my_apticon" /> {{ apartment.room}}
+
+                    <div class="col-3 align-items-center border-end">
+                        <fa icon="person-shelter" class="me-2 my_apticon" /> {{ apartment.room}}
                     </div>
-                    <div class="col-4 align-items-center">
+
+                    <div class="col-3 align-items-center border-end">
+                        <fa icon="bed" class="me-2 my_apticon" /> {{ apartment.bed}}
+                    </div>
+
+                    <div class="col-3 align-items-center">
                         <fa icon="person-half-dress" class="me-2 my_apticon" /> {{ apartment.bathroom }}
                     </div>
 
