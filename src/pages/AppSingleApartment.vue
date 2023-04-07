@@ -6,28 +6,30 @@ export default {
   name: "AppSingleApartment",
   data() {
     return {
+      store,
       apartment: null,
       loading: true,
       baseUrl: "http://127.0.0.1:8000",
       form: {
-        email: '',
-        content: '',
-        apartment_id: '',
-      }
+        email: "",
+        content: "",
+        apartment_id: "",
+      },
     };
   },
   methods: {
     saveMessage() {
-      axios.post(`${this.baseUrl}/api/messages`, this.form)
-        .then(response => {
+      axios
+        .post(`${this.baseUrl}/api/messages`, this.form)
+        .then((response) => {
           this.messages = response.data.results;
           console.log(this.messages);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error);
         });
-      console.log(this.form)
-    }
+      console.log(this.form);
+    },
   },
   mounted() {
     // this.store.loadingLocal = true;
@@ -35,7 +37,9 @@ export default {
       .get(`${this.baseUrl}/api/apartments/${this.$route.params.slug}`)
       .then((response) => {
         this.apartment = response.data.results;
+        this.form.apartment_id = this.apartment.id;
         console.log(this.apartment.sponsors);
+        console.log(this.form.apartment_id);
         this.loading = false;
       });
   },
@@ -146,21 +150,13 @@ export default {
                           <input type="email" id="email" name="email" v-model="form.email"/>
                         </div>
                         <div>
-                          <label for="name">nome:</label>
-                          <input type="text" id="name" name="name" v-model="form.name"/>
-                        </div>
-                        <div>
-                          <label for="surname">cognome:</label>
-                          <input type="text" id="surname" name="surname" v-model="form.surname"/>
-                        </div>
-                        <div>
                           <label for="content">contenuto:</label>
                           <textarea id="content" name="content" v-model="form.content"></textarea>
                         </div>
-                        <div>
+                        <!-- <div>
                           <label for="apartment_id">id:</label>
                           <input type="number" id="apartment_id" name="apartment_id" v-model="form.apartment_id">
-                        </div>
+                        </div> -->
                         <button type="submit">Salva messaggio</button>
                       </form>
                     </div>
