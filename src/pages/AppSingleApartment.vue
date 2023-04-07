@@ -116,11 +116,9 @@ export default {
         <div class="row my_desclg">
           <div class="row mt-4 text-wrap my_justify">
             <p>{{ apartment.description }}</p>
-            <button
-              class="btn mt-4 w-100 my_sellerbtn" data-bs-toggle="modal" data-bs-target="#exampleModal"> Contatta il venditore
-            </button>
+            <button class="btn mt-4 w-100 my_sellerbtn" data-bs-toggle="modal" data-bs-target="#exampleModal3"> Contatta il venditore </button>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -172,42 +170,60 @@ export default {
       </div>
     </div>
 
-    <!-- <div class="row mt-4 text-wrap my_justify my_descsm">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-        aspernatur cumque nostrum laudantium tenetur velit voluptatem dolorem
-        deleniti hic deserunt labore, iure, dolorum laborum officia ab et fugit
-        quas suscipit.
-      </p>
-      <a href="#"><button class="btn mt-4 w-100 my_sellerbtn"> Contatta il venditore </button></a>
+    <div class="row mt-4 text-wrap my_justify my_descsm">
+      <p>{{ apartment.description }}</p>
+      <button class="btn mt-4 w-100 my_sellerbtn" data-bs-toggle="modal" data-bs-target="#exampleModal4"> Contatta il venditore </button>
 
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Launch demo modal </button>
-
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+      <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <div class="modal-dialog">
           <div class="modal-content">
+
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">
+                Contatta il venditore
+              </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
+
+            <div class="modal-body">
+
+              <form @submit.prevent="saveMessage">
+
+                <div class="mb-3">
+                  <label for="email" class="form-label text-capitalize">email:</label>
+                  <input type="email" id="email" name="email" class="form-control" v-model="form.email"/>
+                </div>
+
+                <div class="mb-3">
+                  <label for="name" class="form-label text-capitalize">nome:</label>
+                  <input type="text" id="name" name="name" class="form-control" v-model="form.name"/>
+                </div>
+
+                <div class="mb-3">
+                  <label for="surname" class="form-label text-capitalize">cognome:</label>
+                  <input type="text" id="surname" name="surname" class="form-control" v-model="form.surname"/>
+                </div>
+
+                <div class="mb-3">
+                  <label for="content" class="form-label text-capitalize">contenuto:</label>
+                  <textarea id="content" name="content" class="form-control" v-model="form.content"></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="apartment_id" class="form-label text-capitalize">id appartamento:</label>
+                  <input type="number" id="apartment_id" name="apartment_id" class="form-control" v-model="form.apartment_id">
+                </div>
+
+                <button type="submit" class="btn w-100 my_sellerbtn mt-4">Invia messaggio</button>
+              </form>
+
             </div>
           </div>
+
         </div>
       </div>
 
-    </div> -->
+    </div>
 
   </div>
 </template>
