@@ -22,10 +22,10 @@ export default {
             <div class="card-body px-0">
                 <p class="card-title mb-0">
                     <div class="row">
-                        <div class="col-8"><strong>{{ apartment.title }}</strong></div>
+                        <div class="col-8"><h5>{{ apartment.title }}</h5></div>
                     </div>
                 </p>
-                <p class="card-text mb-0 text-secondary">{{ apartment.description }}</p>
+                <!-- <p class="card-text mb-0 text-secondary">{{ apartment.description }}</p> -->
                 <div class="row col-12 p-2 my-2 text-center">
 
                     <div class="col-3 align-items-center border-end">
