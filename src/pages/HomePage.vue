@@ -1,12 +1,10 @@
 <script>
 import axios from "axios";
 import { store } from "../store";
-import AppSearch from "../components/AppSearch.vue";
 import AppCard from "../components/AppCard.vue";
 
 export default {
   components: {
-    AppSearch,
     AppCard,
   },
   name: "Homepage",
@@ -14,14 +12,15 @@ export default {
     return {
       store,
       sponsorized: [],
-      // loading: true,
+      loading: true,
     };
   },
   methods: {
     getSpApartments() {
-      axios.get(`${this.store.baseUrl}/api/sponsorship`).then((response) => {
+      axios.post(`${this.store.baseUrl}/api/sponsorship`).then((response) => {
         console.log(response.data);
-        this.sponsorized = response.data.results;
+        this.sponsorized = response.data.sponsorshipResults;
+        this.loading = false;
       });
     },
   },

@@ -3,21 +3,13 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { store } from "../store";
 
-import AppSearch from "./AppSearch.vue";
-
 export default {
-  components: {
-    AppSearch,
-  },
   data() {
     return {
       store,
       value: "",
+      ListAp: [],
       services: [],
-      range: "",
-      beds: "",
-      rooms: "",
-      apServices: [],
     };
   },
   methods: {
@@ -28,22 +20,22 @@ export default {
     },
     getSearch(param) {
       axios
-        .get(`${this.store.baseUrl}/api/apartments`, {
+        .post(`${this.store.baseUrl}/api/apartments`, {
           street: param,
         })
         .then((response) => {
           if (response.data.success) {
             console.log(response.data);
-            store.apList = response.data.results;
+            store.apList = response.data.indexResults;
           }
         });
     },
     replaceSpaces(string) {
       let str = string;
       // replace white spaces with %20
-      let replacedStr = str.replace(/ +/g, "$20");
+      let replacedStr = str.replace(/ +/g, "%20");
       // modified string
-      getSearch(replacedStr);
+      this.getSearch(replacedStr);
     },
   },
   mounted() {
@@ -826,8 +818,6 @@ export default {
 
       <div class="col-12">
         <form class="d-flex align-items-center" role="search">
-          <AppSearch />
-
           <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit">
             <fa icon="magnifying-glass" />
           </button>
@@ -894,8 +884,7 @@ export default {
 
                     <div class="col-12">
                         <form class="d-flex align-items-center" role="search">
-                            <AppSearch />
-
+                  
                             <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit"><fa icon="magnifying-glass" /></button>
                         </form>
                     </div>
@@ -946,8 +935,6 @@ export default {
 
           <div class="col-12">
             <form class="d-flex align-items-center" role="search">
-              <AppSearch />
-
               <button
                 class="btn my_searchbtnsm rounded-circle ms-2"
                 type="submit"
@@ -1016,9 +1003,15 @@ export default {
                     </form> -->
 
           <div class="col-12">
-            <form class="d-flex align-items-center" role="search">
-              <AppSearch />
-
+            <!-- <form class="d-flex align-items-center" role="search"> -->
+            <div class="input-address w-100">
+              <input
+                type="text"
+                placeholder="Cerca luogo..."
+                class="rounded-pill w-100 py-2 px-3 border shadow-sm"
+                v-model="value"
+                @keyup.enter="replaceSpaces(value)"
+              />
               <button
                 class="btn my_searchbtnsm rounded-circle ms-2"
                 type="submit"
@@ -1026,7 +1019,8 @@ export default {
               >
                 <fa icon="magnifying-glass" />
               </button>
-            </form>
+            </div>
+            <!-- </form> -->
           </div>
         </div>
       </div>
@@ -1246,5 +1240,50 @@ export default {
     background-color: $bnb-white;
     border: 1px solid $bnb-red;
   }
+}
+
+.ul-address {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-right: -2rem;
+}
+
+.li-address {
+  list-style-type: none;
+}
+
+.input-address {
+  position: relative;
+}
+
+ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>

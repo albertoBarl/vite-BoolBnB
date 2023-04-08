@@ -2,6 +2,7 @@
 import axios from "axios";
 import { store } from "../store";
 import AppCard from "../components/AppCard.vue";
+import AppFilter from "../components/AppFilter.vue";
 
 export default {
   data() {
@@ -9,16 +10,32 @@ export default {
       store,
       apartments: null,
       //   loading: true,
+      value: "",
+      services: [],
+      range: "",
+      beds: "",
+      rooms: "",
+      apServices: [],
     };
   },
   components: {
     AppCard,
+    AppFilter,
   },
   methods: {
-    getApartments() {
-      axios.get(`${this.store.baseUrl}/api/apartments`).then((response) => {
-        this.apartments = response.data.results.data;
-      });
+    getSearch() {
+      axios
+        .post(`${this.store.baseUrl}/api/apartments/search`, {
+          location: store.location,
+          range: this.range,
+          beds: this.beds,
+          rooms: this.rooms,
+          apServices: this.apServices,
+        })
+        .then((response) => {
+          console.log(response.data);
+          store.apList = response.data.searchResults;
+        });
     },
     // saveData() {
     //   localStorage.setItem("storeData", JSON.stringify(this.store));
@@ -99,21 +116,49 @@ export default {
     </div>
   </div> -->
 
-  <div v-for="apartment in apartments" :key="apartments.id">
-    <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
-      <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
-      <p>Distance: {{ calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) }} Km</p> -->
-    <!-- <div
+  <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
+    <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
+    <p>Distance: {{ calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) }} Km</p> -->
+  <!-- <div
       v-if="
-        calculateDistance(
-          store.poi.position.lat,
-          store.poi.position.lon,
-          apartment.latitude,
-          apartment.longitude
+      calculateDistance(
+        store.poi.position.lat,
+        store.poi.position.lon,
+        apartment.latitude,
+        apartment.longitude
         ) < 20
-      "
-      class="text-danger"
-    > -->
+        "
+        class="text-danger"
+        > -->
+  <AppFilter :services="services" />
+
+  <div class="row my_searchrow">
+    <div class="col-12 pb-sm-4 pb-lg-2 border-bottom text-end my_btnsm">
+      <button
+        class="btn btn-outline-dark my_filterbutton"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasBottom"
+        aria-controls="offcanvasBottom"
+        data-bs-backdrop="false"
+      >
+        <fa icon="sliders" class="" /> Filtri
+      </button>
+    </div>
+
+    <div class="col-12 pb-sm-4 pb-lg-2 border-bottom text-end my_btnmd">
+      <button
+        class="btn btn-outline-dark my_filterbutton"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal2"
+        data-bs-backdrop="false"
+      >
+        <fa icon="sliders" class="" /> Filtri
+      </button>
+    </div>
+  </div>
+  <div v-for="(apartment, index) in store.apList" :key="apartment.slug">
     <AppCard :apartment="apartment" />
     <!-- </div> -->
   </div>
