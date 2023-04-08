@@ -18,7 +18,6 @@ export default {
     getApartments() {
       axios.get(`${this.store.baseUrl}/api/apartments`).then((response) => {
         this.apartments = response.data.results.data;
-        console.log(this.apartments);
       });
     },
     // saveData() {

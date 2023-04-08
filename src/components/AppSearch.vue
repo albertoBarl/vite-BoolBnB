@@ -6,18 +6,28 @@ export default {
   data() {
     return {
       store,
-      searchText: "",
+      value: "",
       results: [],
     };
   },
   methods: {
-    replaceSpaces(str, replacement) {
-      // find white spaces
-      let regex = /\s+/g;
+    getSearch(param) {
+      axios
+        .get(`${this.store.baseUrl}/api/apartments`, {
+          street: param,
+        })
+        .then((response) => {
+          if (response.data.success) {
+            store.apList = response.data.results;
+          }
+        });
+    },
+    replaceSpaces(string) {
+      let str = string;
       // replace white spaces with %20
-      let replacedStr = str.replace(regex, replacement);
+      let replacedStr = str.replace(/ +/g, "$20");
       // modified string
-      return replacedStr;
+      getSearch(replacedStr);
     },
   },
 };
@@ -28,27 +38,26 @@ export default {
       type="text"
       placeholder="Cerca luogo..."
       class="rounded-pill w-100 py-2 px-3 border shadow-sm"
-      v-model="searchText"
-      @input="getResults"
+      v-model="value"
+      @keyup.enter="replaceSpaces(value)"
     />
-    <ul v-show="results.length > 0" class="ul-address">
+    <!-- <ul v-show="results.length > 0" class="ul-address">
       <li
-        v-for="(result, index) in results"
+        v-for="(results, index) in store.apList"
         :key="index"
-        @click="handleClick(index)"
         class="li-address"
       >
         <router-link
           :to="{
             name: 'search',
-            params: { place: result.address.freeformAddress },
+            params: { place: results.address.freeformAddress },
           }"
           class="text-decoration-none text-black"
         >
-          {{ result.address.freeformAddress }}
+          {{ results.address.freeformAddress }}
         </router-link>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 <style lang="scss" scoped>

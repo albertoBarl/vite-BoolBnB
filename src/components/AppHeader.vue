@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       store,
+      value: "",
       services: [],
       range: "",
       beds: "",
@@ -32,9 +33,17 @@ export default {
         })
         .then((response) => {
           if (response.data.success) {
+            console.log(response.data);
             store.apList = response.data.results;
           }
         });
+    },
+    replaceSpaces(string) {
+      let str = string;
+      // replace white spaces with %20
+      let replacedStr = str.replace(/ +/g, "$20");
+      // modified string
+      getSearch(replacedStr);
     },
   },
   mounted() {
@@ -1013,6 +1022,7 @@ export default {
               <button
                 class="btn my_searchbtnsm rounded-circle ms-2"
                 type="submit"
+                @click="replaceSpaces(value)"
               >
                 <fa icon="magnifying-glass" />
               </button>

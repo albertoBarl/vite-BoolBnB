@@ -13,42 +13,20 @@ export default {
   data() {
     return {
       store,
-      apartments: [],
-      loading: true,
+      sponsorized: [],
+      // loading: true,
     };
   },
   methods: {
-    getApartments() {
-      this.loading = true;
-      axios
-        .get(`${this.store.baseUrl}/api/apartments/search`, {
-          location: store.location,
-          rooms: this.rooms,
-          beds: this.beds,
-          range: this.radius,
-          services: this.apServices,
-        })
-        .then((response) => {
-          if (response.data.success) {
-            console.log(response.data);
-            store.apList.results;
-            this.loading = false;
-          } else {
-            //pagina errore
-          }
-        });
-    },
-    getServices() {
-      axios.get(`${this.store.baseUrl}/api/services`).then((response) => {
-        if (response.data.success) {
-          this.services = response.data.results;
-        }
+    getSpApartments() {
+      axios.get(`${this.store.baseUrl}/api/sponsorship`).then((response) => {
+        console.log(response.data);
+        this.sponsorized = response.data.results;
       });
     },
   },
   mounted() {
-    this.getApartments();
-    this.getServices();
+    this.getSpApartments();
   },
 };
 </script>
@@ -62,7 +40,7 @@ export default {
       <div class="loader"></div>
     </div>
     <div v-else class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col" v-for="apartment in apartments" :key="apartment.slug">
+      <div class="col" v-for="apartment in sponsorized" :key="apartment.slug">
         <AppCard :apartment="apartment" />
       </div>
     </div>
