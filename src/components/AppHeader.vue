@@ -7,9 +7,10 @@ export default {
   data() {
     return {
       store,
-      value: "",
+      valueStr: "",
       ListAp: [],
       services: [],
+      arrayTestApi: null,
     };
   },
   methods: {
@@ -18,29 +19,56 @@ export default {
         this.services = response.data.results;
       });
     },
-    getSearch(param) {
+    // getSearch(param) {
+    //   axios
+    //     .get(`${this.store.baseUrl}/api/apartments`, {
+    //       street: param,
+    //     })
+    //     .then((response) => {
+    //       if (response.data.success) {
+    //         console.log(response.data);
+    //         store.apList = response.data.indexResults;
+    //       }
+    //     });
+    // },
+    // replaceSpaces(string) {
+    //   let str = string;
+    //   // replace white spaces with %20
+    //   let replacedStr = str.replace(/ +/g, "%20");
+    //   // modified string
+    //   this.getSearch(replacedStr);
+    // },
+    getLocation(param) {
       axios
-        .post(`${this.store.baseUrl}/api/apartments`, {
-          street: param,
+        .get(`${this.store.baseUrl}/api/apartments`, {
+          params: {
+            street: param,
+          },
         })
         .then((response) => {
-          if (response.data.success) {
-            console.log(response.data);
-            store.apList = response.data.indexResults;
-          }
+          console.log(response.data.indexResults);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     },
-    replaceSpaces(string) {
-      let str = string;
-      // replace white spaces with %20
-      let replacedStr = str.replace(/ +/g, "%20");
-      // modified string
-      this.getSearch(replacedStr);
-    },
+    // testApi() {
+    //   axios
+    //     .get(`${this.store.baseUrl}/api/apartments`, {
+    //       params: {
+    //         street: this.valueStr,
+    //       },
+    //     })
+    //     .then((response) => {
+    //       console.log(response.data.indexResults);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // },
   },
   mounted() {
     this.getServices();
-    // this.getSearch(apUrlString);
   },
 };
 </script>
@@ -1009,13 +1037,12 @@ export default {
                 type="text"
                 placeholder="Cerca luogo..."
                 class="rounded-pill w-100 py-2 px-3 border shadow-sm"
-                v-model="value"
-                @keyup.enter="replaceSpaces(value)"
+                v-model="valueStr"
+                @keyup.enter="getLocation(valueStr)"
               />
               <button
                 class="btn my_searchbtnsm rounded-circle ms-2"
                 type="submit"
-                @click="replaceSpaces(value)"
               >
                 <fa icon="magnifying-glass" />
               </button>

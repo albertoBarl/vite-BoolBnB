@@ -16,7 +16,7 @@ export default {
     axios
       .get(`${this.store.baseUrl}/api/apartments/${this.$route.params.slug}`)
       .then((response) => {
-        this.apartment = response.data.results;
+        this.apartment = response.data.showResults;
         this.loading = false;
       });
   },

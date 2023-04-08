@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     getSpApartments() {
-      axios.post(`${this.store.baseUrl}/api/sponsorship`).then((response) => {
+      axios.get(`${this.store.baseUrl}/api/sponsorship`).then((response) => {
         console.log(response.data);
         this.sponsorized = response.data.sponsorshipResults;
         this.loading = false;
