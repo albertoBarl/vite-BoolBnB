@@ -5,6 +5,7 @@ import AdvancedSearch from "./pages/AdvancedSearch.vue";
 import AppSingleApartment from "./pages/AppSingleApartment.vue";
 
 const router = createRouter({
+
   history: createWebHistory(),
   routes: [
     {
