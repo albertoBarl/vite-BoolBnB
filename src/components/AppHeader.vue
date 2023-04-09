@@ -19,25 +19,6 @@ export default {
         this.services = response.data.results;
       });
     },
-    // getSearch(param) {
-    //   axios
-    //     .get(`${this.store.baseUrl}/api/apartments`, {
-    //       street: param,
-    //     })
-    //     .then((response) => {
-    //       if (response.data.success) {
-    //         console.log(response.data);
-    //         store.apList = response.data.indexResults;
-    //       }
-    //     });
-    // },
-    // replaceSpaces(string) {
-    //   let str = string;
-    //   // replace white spaces with %20
-    //   let replacedStr = str.replace(/ +/g, "%20");
-    //   // modified string
-    //   this.getSearch(replacedStr);
-    // },
     getLocation(param) {
       axios
         .get(`${this.store.baseUrl}/api/apartments`, {
@@ -47,25 +28,12 @@ export default {
         })
         .then((response) => {
           console.log(response.data.indexResults);
+          store.apList = response.data.indexResults;
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    // testApi() {
-    //   axios
-    //     .get(`${this.store.baseUrl}/api/apartments`, {
-    //       params: {
-    //         street: this.valueStr,
-    //       },
-    //     })
-    //     .then((response) => {
-    //       console.log(response.data.indexResults);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // },
   },
   mounted() {
     this.getServices();
@@ -1031,23 +999,23 @@ export default {
                     </form> -->
 
           <div class="col-12">
-            <!-- <form class="d-flex align-items-center" role="search"> -->
-            <div class="input-address w-100">
-              <input
-                type="text"
-                placeholder="Cerca luogo..."
-                class="rounded-pill w-100 py-2 px-3 border shadow-sm"
-                v-model="valueStr"
-                @keyup.enter="getLocation(valueStr)"
-              />
-              <button
-                class="btn my_searchbtnsm rounded-circle ms-2"
-                type="submit"
-              >
-                <fa icon="magnifying-glass" />
-              </button>
-            </div>
-            <!-- </form> -->
+            <form class="d-flex align-items-center" role="search">
+              <div class="input-address w-100">
+                <input
+                  type="text"
+                  placeholder="Cerca luogo..."
+                  class="rounded-pill w-100 py-2 px-3 border shadow-sm"
+                  v-model="valueStr"
+                />
+                <router-link
+                  class="btn my_searchbtnsm rounded-circle ms-2"
+                  :to="{ name: 'search' }"
+                  @click="getLocation(valueStr)"
+                >
+                  <fa icon="magnifying-glass"
+                /></router-link>
+              </div>
+            </form>
           </div>
         </div>
       </div>
