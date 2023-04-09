@@ -776,7 +776,7 @@ export default {
   <!-- INIZIO HEADER FINE MODALI OFFCANVAS-->
 
   <header class="w-100 fixed-top bg-light shadow-sm my_headersm p-3">
-    <button
+    <!-- <button
       class="btn my_searchbtn shadow"
       type="button"
       data-bs-toggle="offcanvas"
@@ -803,7 +803,7 @@ export default {
           </button>
         </div>
       </div>
-    </button>
+    </button> -->
 
     <div class="row">
       <!-- <div class="col-1">
@@ -814,10 +814,22 @@ export default {
 
       <div class="col-12">
         <form class="d-flex align-items-center" role="search">
-          <button class="btn my_searchbtnsm rounded-circle ms-2" type="submit">
-            <fa icon="magnifying-glass" />
-          </button>
-        </form>
+              <div class="input-address w-100 d-flex">
+                <input
+                  type="text"
+                  placeholder="Cerca luogo..."
+                  class="rounded-pill w-100 py-2 px-3 border shadow-sm"
+                  v-model="valueStr"
+                />
+                <router-link
+                  class="btn my_searchbtnsm rounded-circle ms-2"
+                  :to="{ name: 'search' }"
+                  @click="getLocation(valueStr)"
+                >
+                  <fa icon="magnifying-glass"
+                /></router-link>
+              </div>
+            </form>
       </div>
     </div>
   </header>
@@ -931,12 +943,21 @@ export default {
 
           <div class="col-12">
             <form class="d-flex align-items-center" role="search">
-              <button
-                class="btn my_searchbtnsm rounded-circle ms-2"
-                type="submit"
-              >
-                <fa icon="magnifying-glass" />
-              </button>
+              <div class="input-address w-100 d-flex">
+                <input
+                  type="text"
+                  placeholder="Cerca luogo..."
+                  class="rounded-pill w-100 py-2 px-3 border shadow-sm"
+                  v-model="valueStr"
+                />
+                <router-link
+                  class="btn my_searchbtnsm rounded-circle ms-2"
+                  :to="{ name: 'search' }"
+                  @click="getLocation(valueStr)"
+                >
+                  <fa icon="magnifying-glass"
+                /></router-link>
+              </div>
             </form>
           </div>
         </div>
@@ -1000,7 +1021,7 @@ export default {
 
           <div class="col-12">
             <form class="d-flex align-items-center" role="search">
-              <div class="input-address w-100">
+              <div class="input-address w-100 d-flex">
                 <input
                   type="text"
                   placeholder="Cerca luogo..."
