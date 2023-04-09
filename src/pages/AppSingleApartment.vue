@@ -6,19 +6,21 @@ export default {
   name: "AppSingleApartment",
   data() {
     return {
+      store,
       apartment: null,
       loading: true,
-      baseUrl: "http://127.0.0.1:8000",
+
       form: {
         email: '',
         content: '',
         apartment_id: '',
       }
+
     };
   },
   methods: {
     saveMessage() {
-      axios.post(`${this.baseUrl}/api/messages`, this.form)
+      axios.post(`${this.store.baseUrl}/api/messages`, this.form)
         .then(response => {
           this.messages = response.data.results;
           console.log(this.messages);
@@ -32,10 +34,9 @@ export default {
   mounted() {
     // this.store.loadingLocal = true;
     axios
-      .get(`${this.baseUrl}/api/apartments/${this.$route.params.slug}`)
+      .get(`${this.store.baseUrl}/api/apartments/${this.$route.params.slug}`)
       .then((response) => {
-        this.apartment = response.data.results;
-        console.log(this.apartment.sponsors);
+        this.apartment = response.data.showResults;
         this.loading = false;
       });
   },
@@ -61,7 +62,7 @@ export default {
       >
         <img
           class="my_aptimg"
-          :src="`${this.baseUrl}/storage/${apartment.image}`"
+          :src="`${this.store.baseUrl}/storage/${apartment.image}`"
           alt=""
         />
       </div>

@@ -49,7 +49,6 @@ export default {
         })
         .go()
         .then(function (result) {
-          console.log(result.addresses[0].address.freeformAddress);
           popup.setHTML(result.addresses[0].address.freeformAddress);
         });
     }
