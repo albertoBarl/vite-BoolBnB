@@ -7,29 +7,29 @@ export default {
   data() {
     return {
       store,
-      apartment: null,
+      apartment: [],
       loading: true,
 
       form: {
-        email: '',
-        content: '',
-        apartment_id: '',
-      }
-
+        email: "",
+        content: "",
+        apartment_id: "",
+      },
     };
   },
   methods: {
     saveMessage() {
-      axios.post(`${this.store.baseUrl}/api/messages`, this.form)
-        .then(response => {
+      axios
+        .post(`${this.store.baseUrl}/api/messages`, this.form)
+        .then((response) => {
           this.messages = response.data.results;
           console.log(this.messages);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error);
         });
-      console.log(this.form)
-    }
+      console.log(this.form);
+    },
   },
   mounted() {
     // this.store.loadingLocal = true;
@@ -52,7 +52,10 @@ export default {
     <div v-else class="row">
       <div class="row">
         <div class="col-12">
-          <a href="http://localhost:5173/"><button class="btn mb-4 my_sellerbtnrev">Torna alla lista <fa icon="reply" class="ms-1" /></button></a>
+          <a href="http://localhost:5173/"
+            ><button class="btn mb-4 my_sellerbtnrev">
+              Torna alla lista <fa icon="reply" class="ms-1" /></button
+          ></a>
         </div>
       </div>
 
@@ -90,7 +93,6 @@ export default {
         </div>
 
         <div class="row mt-2 text-center">
-
           <div class="col-3 border-end align-items-center p-2">
             <fa :icon="['fab', 'codepen']" class="me-2 my_apticon" />
             {{ apartment.square_feet }}m&#178;
@@ -111,56 +113,119 @@ export default {
             <fa icon="person-half-dress" class="me-2 my_apticon" />
             {{ apartment.bathroom }}
           </div>
-
         </div>
 
         <div class="row my_desclg">
           <div class="row mt-4 text-wrap my_justify">
             <p>{{ apartment.description }}</p>
-            <button class="btn mt-4 w-100 my_sellerbtn" data-bs-toggle="modal" data-bs-target="#exampleModal3"> Contatta il venditore </button>
+            <button
+              class="btn mt-4 w-100 my_sellerbtn"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal3"
+            >
+              Contatta il venditore
+            </button>
 
-            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div
+              class="modal fade"
+              id="exampleModal3"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
                       Contatta il venditore
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
                   <div class="modal-body">
                     <div>
-
                       <form @submit.prevent="saveMessage">
-
                         <div class="mb-3">
-                          <label for="email" class="form-label text-capitalize">email:</label>
-                          <input type="email" id="email" name="email" class="form-control" v-model="form.email"/>
+                          <label for="email" class="form-label text-capitalize"
+                            >email:</label
+                          >
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            v-model="form.email"
+                          />
                         </div>
 
                         <div class="mb-3">
-                          <label for="name" class="form-label text-capitalize">nome:</label>
-                          <input type="text" id="name" name="name" class="form-control" v-model="form.name"/>
+                          <label for="name" class="form-label text-capitalize"
+                            >nome:</label
+                          >
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="form-control"
+                            v-model="form.name"
+                          />
                         </div>
 
                         <div class="mb-3">
-                          <label for="surname" class="form-label text-capitalize">cognome:</label>
-                          <input type="text" id="surname" name="surname" class="form-control" v-model="form.surname"/>
+                          <label
+                            for="surname"
+                            class="form-label text-capitalize"
+                            >cognome:</label
+                          >
+                          <input
+                            type="text"
+                            id="surname"
+                            name="surname"
+                            class="form-control"
+                            v-model="form.surname"
+                          />
                         </div>
 
                         <div class="mb-3">
-                          <label for="content" class="form-label text-capitalize">contenuto:</label>
-                          <textarea id="content" name="content" class="form-control" v-model="form.content"></textarea>
+                          <label
+                            for="content"
+                            class="form-label text-capitalize"
+                            >contenuto:</label
+                          >
+                          <textarea
+                            id="content"
+                            name="content"
+                            class="form-control"
+                            v-model="form.content"
+                          ></textarea>
                         </div>
 
                         <div class="mb-3">
-                          <label for="apartment_id" class="form-label text-capitalize">id appartamento:</label>
-                          <input type="number" id="apartment_id" name="apartment_id" class="form-control" v-model="form.apartment_id">
+                          <label
+                            for="apartment_id"
+                            class="form-label text-capitalize"
+                            >id appartamento:</label
+                          >
+                          <input
+                            type="number"
+                            id="apartment_id"
+                            name="apartment_id"
+                            class="form-control"
+                            v-model="form.apartment_id"
+                          />
                         </div>
 
-                        <button type="submit" class="btn w-100 my_sellerbtn mt-4">Invia messaggio</button>
+                        <button
+                          type="submit"
+                          class="btn w-100 my_sellerbtn mt-4"
+                        >
+                          Invia messaggio
+                        </button>
                       </form>
-
                     </div>
                   </div>
                 </div>
@@ -173,59 +238,110 @@ export default {
 
     <div class="row mt-4 text-wrap my_justify my_descsm">
       <p>{{ apartment.description }}</p>
-      <button class="btn mt-4 w-100 my_sellerbtn" data-bs-toggle="modal" data-bs-target="#exampleModal4"> Contatta il venditore </button>
+      <button
+        class="btn mt-4 w-100 my_sellerbtn"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal4"
+      >
+        Contatta il venditore
+      </button>
 
-      <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+      <div
+        class="modal fade"
+        id="exampleModal4"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog">
           <div class="modal-content">
-
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
                 Contatta il venditore
               </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
 
             <div class="modal-body">
-
               <form @submit.prevent="saveMessage">
-
                 <div class="mb-3">
-                  <label for="email" class="form-label text-capitalize">email:</label>
-                  <input type="email" id="email" name="email" class="form-control" v-model="form.email"/>
+                  <label for="email" class="form-label text-capitalize"
+                    >email:</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    v-model="form.email"
+                  />
                 </div>
 
                 <div class="mb-3">
-                  <label for="name" class="form-label text-capitalize">nome:</label>
-                  <input type="text" id="name" name="name" class="form-control" v-model="form.name"/>
+                  <label for="name" class="form-label text-capitalize"
+                    >nome:</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-control"
+                    v-model="form.name"
+                  />
                 </div>
 
                 <div class="mb-3">
-                  <label for="surname" class="form-label text-capitalize">cognome:</label>
-                  <input type="text" id="surname" name="surname" class="form-control" v-model="form.surname"/>
+                  <label for="surname" class="form-label text-capitalize"
+                    >cognome:</label
+                  >
+                  <input
+                    type="text"
+                    id="surname"
+                    name="surname"
+                    class="form-control"
+                    v-model="form.surname"
+                  />
                 </div>
 
                 <div class="mb-3">
-                  <label for="content" class="form-label text-capitalize">contenuto:</label>
-                  <textarea id="content" name="content" class="form-control" v-model="form.content"></textarea>
+                  <label for="content" class="form-label text-capitalize"
+                    >contenuto:</label
+                  >
+                  <textarea
+                    id="content"
+                    name="content"
+                    class="form-control"
+                    v-model="form.content"
+                  ></textarea>
                 </div>
 
                 <div class="mb-3">
-                  <label for="apartment_id" class="form-label text-capitalize">id appartamento:</label>
-                  <input type="number" id="apartment_id" name="apartment_id" class="form-control" v-model="form.apartment_id">
+                  <label for="apartment_id" class="form-label text-capitalize"
+                    >id appartamento:</label
+                  >
+                  <input
+                    type="number"
+                    id="apartment_id"
+                    name="apartment_id"
+                    class="form-control"
+                    v-model="form.apartment_id"
+                  />
                 </div>
 
-                <button type="submit" class="btn w-100 my_sellerbtn mt-4">Invia messaggio</button>
+                <button type="submit" class="btn w-100 my_sellerbtn mt-4">
+                  Invia messaggio
+                </button>
               </form>
-
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
-
   </div>
 </template>
 
