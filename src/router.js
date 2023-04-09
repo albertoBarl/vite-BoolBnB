@@ -5,7 +5,6 @@ import AdvancedSearch from "./pages/AdvancedSearch.vue";
 import AppSingleApartment from "./pages/AppSingleApartment.vue";
 
 const router = createRouter({
-
   history: createWebHistory(),
   routes: [
     {
@@ -19,7 +18,7 @@ const router = createRouter({
       component: AdvancedSearch,
     },
     {
-      path: "/:slug",
+      path: "/apartments/:slug",
       name: "single_apartment",
       component: AppSingleApartment,
     },
