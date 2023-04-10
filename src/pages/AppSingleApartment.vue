@@ -51,7 +51,7 @@ export default {
     <div v-else class="row">
       <div class="row">
         <div class="col-12">
-          <a href="http://localhost:5173/"
+          <a href="http://localhost:5174/"
             ><button class="btn mb-4 my_sellerbtnrev">
               Torna alla lista <fa icon="reply" class="ms-1" /></button
           ></a>
