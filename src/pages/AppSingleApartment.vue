@@ -13,6 +13,7 @@ export default {
         email: "",
         content: "",
         apartment_id: "",
+        apartment_title: "",
       },
     };
   },
@@ -34,6 +35,7 @@ export default {
       .then((response) => {
         this.apartment = response.data.showResults;
         this.form.apartment_id = this.apartment.id;
+        this.form.apartment_title = this.apartment.title;
         this.loading = false;
       });
   },
@@ -185,7 +187,6 @@ export default {
           </div>
         </div>
       </div>
-      <p class="pt-2">{{ apartment.description }}</p>
     </div>
 
     <div class="row mt-4 text-wrap my_justify my_descsm">
