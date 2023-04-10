@@ -13,6 +13,7 @@ export default {
         email: "",
         content: "",
         apartment_id: "",
+        apartment_title: "",
       },
     };
   },
@@ -36,6 +37,7 @@ export default {
       .then((response) => {
         this.apartment = response.data.showResults;
         this.form.apartment_id = this.apartment.id;
+        this.form.apartment_title = this.apartment.title;
         this.loading = false;
       });
   },
