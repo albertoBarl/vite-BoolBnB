@@ -8,9 +8,7 @@ export default {
     return {
       store,
       valueStr: "",
-      ListAp: [],
       services: [],
-      arrayTestApi: null,
     };
   },
   methods: {
@@ -19,15 +17,14 @@ export default {
         this.services = response.data.results;
       });
     },
-    getLocation(param) {
+    getLocation() {
       axios
         .get(`${this.store.baseUrl}/api/apartments`, {
           params: {
-            street: param,
+            street: this.valueStr,
           },
         })
         .then((response) => {
-          console.log(response.data.indexResults);
           store.apList = response.data.indexResults;
         })
         .catch((error) => {
@@ -424,355 +421,6 @@ export default {
     </div>
   </div>
 
-  <div
-    class="modal fade my_modalfilters"
-    id="exampleModal2"
-    tabindex="-1"
-    aria-labelledby="exampleModal2Label"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModal2Label">Filtri</h1>
-          <button
-            type="button"
-            class="btn-close justify-self-start"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <section>
-            <h3 class="mb-3">Stanze e letti</h3>
-
-            <div class="row justify-content-between mb-3">
-              <div class="col-12"><h5>Camere da letto</h5></div>
-            </div>
-
-            <div class="row justify-content-between mb-3">
-              <div class="col-12 d-flex my_horizontalscroll">
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill active"
-                  data-bs-toggle="button"
-                  aria-pressed="true"
-                >
-                  Qualsiasi
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  1
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  2
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  3
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  4
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  5
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  6
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  7
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  8+
-                </button>
-              </div>
-            </div>
-
-            <br />
-
-            <div class="row justify-content-between mb-3">
-              <div class="col-12"><h5>Letti</h5></div>
-            </div>
-
-            <div class="row justify-content-between mb-3">
-              <div class="col-12 d-flex my_horizontalscroll">
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill active"
-                  data-bs-toggle="button"
-                  aria-pressed="true"
-                >
-                  Qualsiasi
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  1
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  2
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  3
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  4
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  5
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  6
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  7
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  8+
-                </button>
-              </div>
-            </div>
-
-            <br />
-
-            <div class="row justify-content-between mb-3">
-              <div class="col-12"><h5>Bagni</h5></div>
-            </div>
-
-            <div class="row justify-content-between mb-3">
-              <div class="col-12 d-flex my_horizontalscroll">
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill active"
-                  data-bs-toggle="button"
-                  aria-pressed="true"
-                >
-                  Qualsiasi
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  1
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  2
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  3
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  4
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  5
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  6
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  7
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  8+
-                </button>
-              </div>
-            </div>
-
-            <br />
-
-            <div class="row justify-content-between mb-3">
-              <div class="col-12"><h5>Bagni</h5></div>
-            </div>
-
-            <div class="row justify-content-between mb-3">
-              <div class="col-12 d-flex my_horizontalscroll">
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill active"
-                  data-bs-toggle="button"
-                  aria-pressed="true"
-                >
-                  Qualsiasi
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  1
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  2
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  3
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  4
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  5
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  6
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  7
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-dark rounded-pill"
-                  data-bs-toggle="button"
-                >
-                  8+
-                </button>
-              </div>
-            </div>
-          </section>
-
-          <hr />
-
-          <section>
-            <h3>Servizi</h3>
-
-            <div
-              class="row align-items-center mb-3 fs-6"
-              v-for="item in services"
-              :key="item.id"
-            >
-              <div class="col-10">
-                <label class="form-check-label">{{ item.name }}</label>
-              </div>
-              <div class="col-2">
-                <input
-                  class="form-check-input my_checkbox float-end"
-                  type="checkbox"
-                  value=""
-                  id="{{ item.id }}"
-                />
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- INIZIO HEADER FINE MODALI OFFCANVAS-->
 
   <header class="w-100 fixed-top bg-light shadow-sm my_headersm p-3">
@@ -919,6 +567,7 @@ export default {
         </div>
       </div>
 
+
       <div class="col-2">
           <button class="btn btn-outline-dark my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
               <fa icon="sliders" class="me-2" /> Filtri
@@ -934,6 +583,19 @@ export default {
       </div>
     </div>
   </header>
+
+  <!-- modal button for filters -->
+  <div class="col-2 mb-3">
+    <button
+      class="btn btn-outline-dark my_filterbutton rounded"
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal2"
+      data-bs-backdrop="false"
+    >
+      <fa icon="sliders" class="me-2" /> Filtri
+    </button>
+  </div>
 </template>
 
 <style lang="scss" scoped>
