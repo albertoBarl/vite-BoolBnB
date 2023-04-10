@@ -13,6 +13,7 @@ export default {
       store,
       sponsorized: [],
       loading: true,
+      allaps: [],
     };
   },
   methods: {
@@ -20,6 +21,12 @@ export default {
       axios.get(`${this.store.baseUrl}/api/sponsorship`).then((response) => {
         console.log(response.data);
         this.sponsorized = response.data.sponsorshipResults;
+        this.loading = false;
+      });
+    },
+    getAllAps() {
+      axios.get(`${this.store.baseUrl}/api/allaps`).then((response) => {
+        this.allaps = response.data.allApsResults;
         this.loading = false;
       });
     },

@@ -776,44 +776,48 @@ export default {
   <!-- INIZIO HEADER FINE MODALI OFFCANVAS-->
 
   <header class="w-100 fixed-top bg-light shadow-sm my_headersm p-3">
-
     <div class="row">
       <div class="col-1">
-          <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-bs-backdrop="false">
-              <fa icon="sliders"/>
-          </button>
+        <button
+          class="btn btn-outline-dark my_filterbutton"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasBottom"
+          aria-controls="offcanvasBottom"
+          data-bs-backdrop="false"
+        >
+          <fa icon="sliders" />
+        </button>
       </div>
 
       <div class="col-11">
         <form class="d-flex align-items-center" role="search">
-              <div class="input-address w-100 d-flex">
-                <input
-                  type="text"
-                  placeholder="Cerca luogo..."
-                  class="rounded-pill w-100 py-2 px-3 border shadow-sm"
-                  v-model="valueStr"
-                />
-                <router-link
-                  class="btn my_searchbtnsm rounded-circle ms-2"
-                  :to="{ name: 'search' }"
-                  @click="getLocation(valueStr)"
-                >
-                  <fa icon="magnifying-glass"
-                /></router-link>
-              </div>
-            </form>
+          <div class="input-address w-100 d-flex">
+            <input
+              type="text"
+              placeholder="Cerca luogo..."
+              class="rounded-pill w-100 py-2 px-3 border shadow-sm"
+              v-model="valueStr"
+            />
+            <router-link
+              class="btn my_searchbtnsm rounded-circle ms-2"
+              :to="{ name: 'search' }"
+              @click="getLocation(valueStr)"
+            >
+              <fa icon="magnifying-glass"
+            /></router-link>
+          </div>
+        </form>
       </div>
     </div>
   </header>
 
   <nav class="w-100 fixed-bottom bg-light border-top my_navsm">
-
     <div class="container justify-content-center d-flex pt-3">
       <button class="btn my_navico mb-0 text-center">
         <fa icon="magnifying-glass" class="my_active" /><br />
         <p>Esplora</p>
       </button>
-
 
       <div class="btn-group dropup">
         <button
@@ -842,7 +846,6 @@ export default {
   </nav>
 
   <header class="w-100 fixed-top bg-light shadow-sm my_headermd px-5 py-3">
-
     <div class="row align-items-center px-5">
       <div class="col-2">
         <a href="http://localhost:5173/"
@@ -855,16 +858,20 @@ export default {
 
       <div class="col-1">
         <div class="col-2">
-          <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
-              <fa icon="sliders" />
+          <button
+            class="btn btn-outline-dark my_filterbutton"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal2"
+            data-bs-backdrop="false"
+          >
+            <fa icon="sliders" />
           </button>
         </div>
       </div>
 
       <div class="col-7 justify-content-center">
-
         <div class="row align-items-center">
-
           <div class="col-12">
             <form class="d-flex align-items-center" role="search">
               <div class="input-address w-100 d-flex">
@@ -888,7 +895,6 @@ export default {
       </div>
 
       <div class="col-2 d-flex justify-content-end align-items-center">
-
         <div class="btn-group ms-3">
           <button
             type="button"
@@ -929,9 +935,7 @@ export default {
       <div class="col-2"></div>
 
       <div class="col-4 justify-content-center">
-
         <div class="row align-items-center">
-
           <div class="col-12">
             <form class="d-flex align-items-center" role="search">
               <div class="input-address w-100 d-flex">
@@ -955,13 +959,18 @@ export default {
       </div>
 
       <div class="col-2">
-          <button class="btn btn-outline-dark my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
-              <fa icon="sliders" class="me-2" /> Filtri
-          </button>
+        <button
+          class="btn btn-outline-dark my_filterbutton rounded"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal2"
+          data-bs-backdrop="false"
+        >
+          <fa icon="sliders" class="me-2" /> Filtri
+        </button>
       </div>
 
       <div class="col-2 d-flex justify-content-end align-items-center">
-
         <div class="btn-group ms-3">
           <button
             type="button"
