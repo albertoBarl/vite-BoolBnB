@@ -32,6 +32,7 @@ export default {
     },
   },
   mounted() {
+    this.getAllAps();
     this.getSpApartments();
   },
 };
@@ -47,11 +48,19 @@ export default {
     </div>
     <div v-else class="row row-cols-1 row-cols-md-2 g-4 rounded">
       <div class="col" v-for="apartment in sponsorized" :key="apartment.slug">
-        <h4 class="text-color border-bottom border-2">Sponsored</h4>
+        <div class="position-relative">
+          <AppCard :apartment="apartment" class="z-index-0" />
+          <div class="bg-airbnb p-1 m-2 text-light sponsor-tag position-absolute top-0 end-0 z-index-1 rounded">Sponsored</div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 rounded">
+      <div class="col" v-for="apartment in allaps" :key="apartment.slug">
         <AppCard :apartment="apartment" />
       </div>
     </div>
-    
   </div>
 
   <!-- <nav class="my_pagination w-100 mt-5">
@@ -71,8 +80,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.text-color {
-  color: #FF385C;
+.bg-airbnb {
+  background-color: #FF385C;
+}
+
+.sponsor-tag {
+  width: 100px;
+  text-align: center;
 }
 
 .my_card {
