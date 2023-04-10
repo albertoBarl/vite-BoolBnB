@@ -36,6 +36,7 @@ export default {
     axios
       .get(`${this.store.baseUrl}/api/apartments/${this.$route.params.slug}`)
       .then((response) => {
+        this.form.apartment_id = this.apartment.id;
         this.apartment = response.data.showResults;
         this.loading = false;
       });
@@ -163,6 +164,11 @@ export default {
                         </div>
 
                         <div class="mb-3">
+                          <label for="content" class="form-label text-capitalize">contenuto:</label>
+                          <textarea id="content" name="content" class="form-control" v-model="form.content"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn w-100 my_sellerbtn mt-4">Invia messaggio</button>
                           <label for="name" class="form-label text-capitalize"
                             >nome:</label
                           >
@@ -225,6 +231,7 @@ export default {
                         >
                           Invia messaggio
                         </button>
+
                       </form>
                     </div>
                   </div>
@@ -234,9 +241,18 @@ export default {
           </div>
         </div>
       </div>
+      <p class="pt-2">{{ apartment.description }}</p>
     </div>
-
+    
     <div class="row mt-4 text-wrap my_justify my_descsm">
+
+      <button class="btn mt-4 w-100 my_sellerbtn" data-bs-toggle="modal" data-bs-target="#exampleModal4"> Contatta il venditore </button>
+      
+      <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            
+
       <p>{{ apartment.description }}</p>
       <button
         class="btn mt-4 w-100 my_sellerbtn"
@@ -255,6 +271,7 @@ export default {
       >
         <div class="modal-dialog">
           <div class="modal-content">
+
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
                 Contatta il venditore
@@ -283,6 +300,13 @@ export default {
                 </div>
 
                 <div class="mb-3">
+
+                  <label for="content" class="form-label text-capitalize">contenuto:</label>
+                  <textarea id="content" name="content" class="form-control" v-model="form.content"></textarea>
+                </div>
+
+                <button type="submit" class="btn w-100 my_sellerbtn mt-4">Invia messaggio</button>
+
                   <label for="name" class="form-label text-capitalize"
                     >nome:</label
                   >
@@ -336,6 +360,7 @@ export default {
                 <button type="submit" class="btn w-100 my_sellerbtn mt-4">
                   Invia messaggio
                 </button>
+
               </form>
             </div>
           </div>

@@ -9,3 +9,4 @@ export const store = reactive({
   latitude: "",
   longitude: "",
 });
+
