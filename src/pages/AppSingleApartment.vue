@@ -187,7 +187,6 @@ export default {
           </div>
         </div>
       </div>
-      <p class="pt-2">{{ apartment.description }}</p>
     </div>
 
     <div class="row mt-4 text-wrap my_justify my_descsm">
