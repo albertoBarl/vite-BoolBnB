@@ -38,11 +38,13 @@ export default {
     >
       <div class="loader"></div>
     </div>
-    <div v-else class="row row-cols-1 row-cols-md-2 g-4">
+    <div v-else class="row row-cols-1 row-cols-md-2 g-4 rounded">
       <div class="col" v-for="apartment in sponsorized" :key="apartment.slug">
+        <h4 class="text-color border-bottom border-2">Sponsored</h4>
         <AppCard :apartment="apartment" />
       </div>
     </div>
+    
   </div>
 
   <!-- <nav class="my_pagination w-100 mt-5">
@@ -62,6 +64,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.text-color {
+  color: #FF385C;
+}
+
 .my_card {
   width: 350px;
   margin: 0 auto;
