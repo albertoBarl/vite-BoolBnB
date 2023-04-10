@@ -2,7 +2,7 @@
 import axios from "axios";
 import { store } from "../store";
 import AppCard from "../components/AppCard.vue";
-import AppFilter from "../components/AppFilter.vue";
+// import AppFilter from "../components/AppFilter.vue";
 
 export default {
   data() {
@@ -18,7 +18,7 @@ export default {
   },
   components: {
     AppCard,
-    AppFilter,
+    // AppFilter,
   },
   methods: {
     getServices() {
@@ -93,7 +93,8 @@ export default {
         "
         class="text-danger"
         > -->
-  <AppFilter :services="services" />
+
+  <!-- <AppFilter :services="services" /> -->
 
   <div class="row my_searchrow">
     <div class="col-12 pb-sm-4 pb-lg-2 border-bottom text-end my_btnsm">
