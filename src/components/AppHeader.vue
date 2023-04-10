@@ -52,10 +52,10 @@ export default {
         data-bs-dismiss="offcanvas"
         aria-label="Close"
       ></button>
-      <h5 class="offcanvas-title me-2" id="offcanvasBottomLabel">Filtri</h5>
+      <!-- <h5 class="offcanvas-title me-2" id="offcanvasBottomLabel">Filtri</h5> -->
     </div>
     <hr />
-    <div class="offcanvas-body small px-3">
+    <!-- <div class="offcanvas-body small px-3">
       <section>
         <h3 class="mb-3">Stanze e letti</h3>
 
@@ -381,7 +381,7 @@ export default {
           </div>
         </div>
       </section>
-    </div>
+    </div> -->
   </div>
 
   <!--MODALI-->
@@ -427,9 +427,9 @@ export default {
 
     <div class="row">
       <div class="col-1">
-          <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-bs-backdrop="false">
+          <!-- <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-bs-backdrop="false">
               <fa icon="sliders"/>
-          </button>
+          </button> -->
       </div>
 
       <div class="col-11">
@@ -485,9 +485,9 @@ export default {
 
       <div class="col-1">
         <div class="col-2">
-          <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
+          <!-- <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
               <fa icon="sliders" />
-          </button>
+          </button> -->
         </div>
       </div>
 
@@ -568,13 +568,13 @@ export default {
       </div>
 
 
-      <div class="col-2">
+      <!-- <div class="col-2">
           <button class="btn btn-outline-dark my_filterbutton rounded" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
               <fa icon="sliders" class="me-2" /> Filtri
           </button>
-      </div>
+      </div> -->
 
-      <div class="col-2 d-flex justify-content-end align-items-center">
+      <div class="col-4 d-flex justify-content-end align-items-center">
 
         <a class="btn fs-5 my_userbutton shadow-sm rounded-circle ms-3" href="http://127.0.0.1:8000/login">
           <fa :icon="['far', 'circle-user']" />
@@ -593,7 +593,7 @@ export default {
       data-bs-target="#exampleModal2"
       data-bs-backdrop="false"
     >
-      <fa icon="sliders" class="me-2" /> Filtri
+      <!-- <fa icon="sliders" class="me-2" /> Filtri -->
     </button>
   </div>
 </template>

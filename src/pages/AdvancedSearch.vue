@@ -67,7 +67,7 @@ export default {
         a
     </div> -->
   <!-- modal button for filters -->
-  <div class="col-2 mb-3">
+  <!-- <div class="col-2 mb-3">
     <button
       class="btn btn-outline-dark my_filterbutton rounded"
       type="button"
@@ -77,10 +77,10 @@ export default {
     >
       <fa icon="sliders" class="me-2" /> Filtri
     </button>
-  </div>
+  </div> -->
 
   <!-- filters modal -->
-  <div
+  <!-- <div
     class="modal fade my_modalfilters"
     id="exampleModal2"
     tabindex="-1"
@@ -100,8 +100,8 @@ export default {
         </div>
         <div class="modal-body">
           <section>
-            <!-- rooms -->
-            <h3 class="mb-3 text-capitalize">stanze</h3>
+             rooms -->
+            <!-- <h3 class="mb-3 text-capitalize">stanze</h3>
             <div class="row justify-content-between mb-3">
               <div class="col-12 text-capitalize"><h5>camere da letto</h5></div>
             </div>
@@ -206,7 +206,7 @@ export default {
         </div>
       </div>
     </div>
-  </div>
+  </div> --> 
 
   <div v-for="(apartment, index) in store.apList">
     <AppCard :apartment="apartment" :key="apartment.id" />
