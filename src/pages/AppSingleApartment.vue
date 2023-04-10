@@ -22,12 +22,10 @@ export default {
         .post(`${this.store.baseUrl}/api/messages`, this.form)
         .then((response) => {
           this.messages = response.data.results;
-          console.log(this.messages);
         })
         .catch((error) => {
           console.error(error);
         });
-      console.log(this.form);
     },
   },
   mounted() {
@@ -64,7 +62,7 @@ export default {
       >
         <img
           class="my_aptimg"
-          :src="`${this.baseUrl}/storage/${apartment.image}`"
+          :src="`${this.store.baseUrl}/storage/${apartment.image}`"
           alt=""
         />
       </div>

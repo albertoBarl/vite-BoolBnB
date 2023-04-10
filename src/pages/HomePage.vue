@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       store,
-      sponsorized: [],
+      sponsored: [],
       loading: true,
       allaps: [],
     };
@@ -20,7 +20,7 @@ export default {
     getSpApartments() {
       axios.get(`${this.store.baseUrl}/api/sponsorship`).then((response) => {
         console.log(response.data);
-        this.sponsorized = response.data.sponsorshipResults;
+        this.sponsored = response.data.sponsorshipResults;
         this.loading = false;
       });
     },
@@ -46,7 +46,7 @@ export default {
       <div class="loader"></div>
     </div>
     <div v-else class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col" v-for="apartment in sponsorized" :key="apartment.slug">
+      <div class="col" v-for="apartment in sponsored" :key="apartment.id">
         <AppCard :apartment="apartment" />
       </div>
     </div>
