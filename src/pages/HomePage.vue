@@ -48,7 +48,7 @@ export default {
     </div>
 
     <div v-else class="row row-cols-1 row-cols-md-2 g-4 rounded">
-      <div class="col" v-for="apartment in sponsorized" :key="apartment.slug">
+      <div class="col" v-for="apartment in sponsored" :key="apartment.slug">
         <div class="position-relative">
           <AppCard :apartment="apartment" class="z-index-0" />
           <div class="bg-airbnb p-1 m-2 text-light sponsor-tag position-absolute top-0 end-0 z-index-1 rounded">Sponsored</div>
@@ -83,7 +83,7 @@ export default {
 
 <style lang="scss" scoped>
 .bg-airbnb {
-  background-color: #FF385C;
+  background-color: #ff385c;
 }
 
 .sponsor-tag {
