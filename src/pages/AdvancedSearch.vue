@@ -18,7 +18,6 @@ export default {
       services: [],
       apServices: [],
       options: ["Qualsiasi", 1, 2, 3, 4, 5, 6, 7, "8+"],
-
     };
   },
   components: {
@@ -28,7 +27,7 @@ export default {
   methods: {
     filtedApartment(bagniStore, Appartamento) {
       if (bagniStore == null) {
-        console.log(Appartamento)
+        console.log(Appartamento);
       }
     },
     getApartments() {
@@ -57,14 +56,14 @@ export default {
       const a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
         Math.cos(this.toRadians(lat1)) *
-        Math.cos(this.toRadians(lat2)) *
-        Math.sin(dLng / 2) *
-        Math.sin(dLng / 2);
+          Math.cos(this.toRadians(lat2)) *
+          Math.sin(dLng / 2) *
+          Math.sin(dLng / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       const distance = radius * c;
 
       return distance.toFixed(2);
-
+    },
     // getSearch() {
     //   axios
     //     .get(`${this.store.baseUrl}/api/apartments/search`, {
@@ -93,7 +92,6 @@ export default {
         .then((response) => {
           store.apList = response.data.searchByResults;
         });
-
     },
     toRadians(degree) {
       return degree * (Math.PI / 180);
@@ -116,44 +114,62 @@ export default {
       this.services = response.data.results;
       console.log(response.data.results);
     });
-
   },
-
 };
 </script>
 
 <template lang="">
-    <!-- <div v-if="loading">
+  <!-- <div v-if="loading">
         a
     </div> -->
 
-    <AppFilter :services="services" />
+  <AppFilter :services="services" />
 
-    <div class="row my_searchrow">
-
-      <div class="col-12 pb-sm-4 pb-lg-2 border-bottom text-end my_btnsm">
-          <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-bs-backdrop="false">
-              <fa icon="sliders" class="" /> Filtri
-          </button>
-      </div>
-
-      <div class="col-12 pb-sm-4 pb-lg-2 border-bottom text-end my_btnmd">
-          <button class="btn btn-outline-dark my_filterbutton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-backdrop="false">
-              <fa icon="sliders" class="" /> Filtri
-          </button>
-      </div>
-
+  <div class="row my_searchrow">
+    <div class="col-12 pb-sm-4 pb-lg-2 border-bottom text-end my_btnsm">
+      <button
+        class="btn btn-outline-dark my_filterbutton"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasBottom"
+        aria-controls="offcanvasBottom"
+        data-bs-backdrop="false"
+      >
+        <fa icon="sliders" class="" /> Filtri
+      </button>
     </div>
 
-    <div v-for="apartment in apartments" :key="apartments.id">
-      <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
+    <div class="col-12 pb-sm-4 pb-lg-2 border-bottom text-end my_btnmd">
+      <button
+        class="btn btn-outline-dark my_filterbutton"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal2"
+        data-bs-backdrop="false"
+      >
+        <fa icon="sliders" class="" /> Filtri
+      </button>
+    </div>
+  </div>
+
+  <div v-for="apartment in apartments" :key="apartments.id">
+    <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
       <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
       <p>Distance: {{ calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) }} Km</p> -->
-   <div v-if="calculateDistance(store.poi.position.lat, store.poi.position.lon, apartment.latitude, apartment.longitude) < 20 && store.selectedBagni == 0">
-    <AppCard :apartment="apartment" />
+    <div
+      v-if="
+        calculateDistance(
+          store.poi.position.lat,
+          store.poi.position.lon,
+          apartment.latitude,
+          apartment.longitude
+        ) < 20 && store.selectedBagni == 0
+      "
+    >
+      <AppCard :apartment="apartment" />
 
-  <!-- modal button for filters -->
-  <!-- <div class="col-2 mb-3">
+      <!-- modal button for filters -->
+      <!-- <div class="col-2 mb-3">
     <button
       class="btn btn-outline-dark my_filterbutton rounded"
       type="button"
@@ -165,8 +181,8 @@ export default {
     </button>
   </div> -->
 
-  <!-- filters modal -->
-  <!-- <div
+      <!-- filters modal -->
+      <!-- <div
     class="modal fade my_modalfilters"
     id="exampleModal2"
     tabindex="-1"
@@ -187,7 +203,7 @@ export default {
         <div class="modal-body">
           <section>
              rooms -->
-            <!-- <h3 class="mb-3 text-capitalize">stanze</h3>
+      <!-- <h3 class="mb-3 text-capitalize">stanze</h3>
             <div class="row justify-content-between mb-3">
               <div class="col-12 text-capitalize"><h5>camere da letto</h5></div>
             </div>
@@ -292,13 +308,12 @@ export default {
         </div>
       </div>
     </div>
-  </div> --> 
-
-  <div v-for="(apartment, index) in store.apList">
-    <AppCard :apartment="apartment" :key="apartment.id" />
-
-  </div>
+  </div> -->
     </div>
+    <div v-for="(apartment, index) in store.apList">
+      <AppCard :apartment="apartment" :key="apartment.id" />
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -311,7 +326,6 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
-
   .my_btnsm {
     display: none;
   }
@@ -319,6 +333,5 @@ export default {
   .my_btnmd {
     display: inline;
   }
-
 }
 </style>
