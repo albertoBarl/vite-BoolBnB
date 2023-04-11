@@ -13,6 +13,7 @@ export default {
         email: "",
         content: "",
         apartment_id: "",
+        apartment_title: "",
       },
     };
   },
@@ -22,12 +23,10 @@ export default {
         .post(`${this.store.baseUrl}/api/messages`, this.form)
         .then((response) => {
           this.messages = response.data.results;
-          console.log(this.messages);
         })
         .catch((error) => {
           console.error(error);
         });
-      console.log(this.form);
     },
   },
   mounted() {
@@ -36,6 +35,7 @@ export default {
       .then((response) => {
         this.apartment = response.data.showResults;
         this.form.apartment_id = this.apartment.id;
+        this.form.apartment_title = this.apartment.title;
         this.loading = false;
       });
   },
@@ -51,7 +51,7 @@ export default {
     <div v-else class="row">
       <div class="row">
         <div class="col-12">
-          <a href="http://localhost:5173/"
+          <a href="http://localhost:5174/"
             ><button class="btn mb-4 my_sellerbtnrev">
               Torna alla lista <fa icon="reply" class="ms-1" /></button
           ></a>
@@ -64,7 +64,7 @@ export default {
       >
         <img
           class="my_aptimg"
-          :src="`${this.baseUrl}/storage/${apartment.image}`"
+          :src="`${this.store.baseUrl}/storage/${apartment.image}`"
           alt=""
         />
       </div>
