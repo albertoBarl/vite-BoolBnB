@@ -152,6 +152,9 @@ export default {
     </div>
   </div>
 
+  <div v-for="(apartment, index) in store.apList">
+    <AppCard :apartment="apartment" :key="apartment.id" />
+  </div>
   <div v-for="apartment in apartments" :key="apartments.id">
     <!-- <p>Latitude1: {{store.poi.position.lat}}, Longitude1: {{store.poi.position.lon}}</p>
       <p>Latitude2: {{apartment.latitude}}, Longitude2: {{apartment.longitude}}</p>
@@ -309,9 +312,6 @@ export default {
       </div>
     </div>
   </div> -->
-    </div>
-    <div v-for="(apartment, index) in store.apList">
-      <AppCard :apartment="apartment" :key="apartment.id" />
     </div>
   </div>
 </template>
